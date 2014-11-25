@@ -1,6 +1,7 @@
 package com.caoyanming.curroculum.data.db;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import android.content.Context;
 
@@ -53,6 +54,18 @@ public class CourseDao
 			e.printStackTrace();
 		}
 
+	}
+	
+	
+	public List<Course> queryAllCourse(){
+		try {
+			return courseDaoOpe.queryForAll();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 
 	public Course get(int id)

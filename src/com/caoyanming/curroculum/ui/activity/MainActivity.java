@@ -4,9 +4,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
-import com.caoyanming.curroculum.R;
-import com.caoyanming.curroculum.R.id;
-import com.caoyanming.curroculum.R.layout;
+import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.ui.fragment.BaseFragment;
 import com.caoyanming.curroculum.ui.fragment.ContentFragment;
 import com.caoyanming.curroculum.ui.fragment.MenuFragment;

@@ -2,6 +2,7 @@ package com.caoyanming.curroculum.ui.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.caoyanming.curroculum.R;
+import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
 /**
  * 

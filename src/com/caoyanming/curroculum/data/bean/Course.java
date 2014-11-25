@@ -27,7 +27,7 @@ public class Course {
 	private String time;
 	//周次
 	@DatabaseField(columnName = "weekly")
-	private String weekly;
+	private int weekly;
 	//开始的节数
 	@DatabaseField(columnName = "startClass")
 	private int startClass;
@@ -63,11 +63,11 @@ public class Course {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getWeekly() {
+	public int getWeekly() {
 		return weekly;
 	}
-	public void setWeekly(String weekly) {
-		this.weekly = weekly;
+	public void setWeekly(int i) {
+		this.weekly = i%7;
 	}
 	public int getStartClass() {
 		return startClass;

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.caoyanming.curroculum.R;
+import com.caoyanming.curriculum.R;
 import com.caoyanming.util.L;
 
 

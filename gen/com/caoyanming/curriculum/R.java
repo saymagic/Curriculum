@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.caoyanming.curroculum;
+package com.caoyanming.curriculum;
 
 public final class R {
     public static final class anim {
@@ -254,20 +254,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SlidingMenu_behindOffset com.caoyanming.curroculum:behindOffset}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_behindScrollScale com.caoyanming.curroculum:behindScrollScale}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_behindWidth com.caoyanming.curroculum:behindWidth}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_fadeDegree com.caoyanming.curroculum:fadeDegree}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_fadeEnabled com.caoyanming.curroculum:fadeEnabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_mode com.caoyanming.curroculum:mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_selectorDrawable com.caoyanming.curroculum:selectorDrawable}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_selectorEnabled com.caoyanming.curroculum:selectorEnabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_shadowDrawable com.caoyanming.curroculum:shadowDrawable}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_shadowWidth com.caoyanming.curroculum:shadowWidth}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_touchModeAbove com.caoyanming.curroculum:touchModeAbove}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_touchModeBehind com.caoyanming.curroculum:touchModeBehind}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_viewAbove com.caoyanming.curroculum:viewAbove}</code></td><td></td></tr>
-           <tr><td><code>{@link #SlidingMenu_viewBehind com.caoyanming.curroculum:viewBehind}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_behindOffset com.caoyanming.curriculum:behindOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_behindScrollScale com.caoyanming.curriculum:behindScrollScale}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_behindWidth com.caoyanming.curriculum:behindWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_fadeDegree com.caoyanming.curriculum:fadeDegree}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_fadeEnabled com.caoyanming.curriculum:fadeEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_mode com.caoyanming.curriculum:mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_selectorDrawable com.caoyanming.curriculum:selectorDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_selectorEnabled com.caoyanming.curriculum:selectorEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_shadowDrawable com.caoyanming.curriculum:shadowDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_shadowWidth com.caoyanming.curriculum:shadowWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_touchModeAbove com.caoyanming.curriculum:touchModeAbove}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_touchModeBehind com.caoyanming.curriculum:touchModeBehind}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_viewAbove com.caoyanming.curriculum:viewAbove}</code></td><td></td></tr>
+           <tr><td><code>{@link #SlidingMenu_viewBehind com.caoyanming.curriculum:viewBehind}</code></td><td></td></tr>
            </table>
            @see #SlidingMenu_behindOffset
            @see #SlidingMenu_behindScrollScale
@@ -291,7 +291,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01000c, 0x7f01000d
         };
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#behindOffset}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#behindOffset}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -303,11 +303,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:behindOffset
+          @attr name com.caoyanming.curriculum:behindOffset
         */
         public static final int SlidingMenu_behindOffset = 3;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#behindScrollScale}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#behindScrollScale}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -317,11 +317,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:behindScrollScale
+          @attr name com.caoyanming.curriculum:behindScrollScale
         */
         public static final int SlidingMenu_behindScrollScale = 5;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#behindWidth}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#behindWidth}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -333,11 +333,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:behindWidth
+          @attr name com.caoyanming.curriculum:behindWidth
         */
         public static final int SlidingMenu_behindWidth = 4;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#fadeDegree}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#fadeDegree}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -347,11 +347,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:fadeDegree
+          @attr name com.caoyanming.curriculum:fadeDegree
         */
         public static final int SlidingMenu_fadeDegree = 11;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#fadeEnabled}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#fadeEnabled}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -361,11 +361,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:fadeEnabled
+          @attr name com.caoyanming.curriculum:fadeEnabled
         */
         public static final int SlidingMenu_fadeEnabled = 10;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#mode}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#mode}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -378,21 +378,21 @@ containing a value of this type.
 <tr><td><code>left</code></td><td>0</td><td></td></tr>
 <tr><td><code>right</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.caoyanming.curroculum:mode
+          @attr name com.caoyanming.curriculum:mode
         */
         public static final int SlidingMenu_mode = 0;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#selectorDrawable}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#selectorDrawable}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.caoyanming.curroculum:selectorDrawable
+          @attr name com.caoyanming.curriculum:selectorDrawable
         */
         public static final int SlidingMenu_selectorDrawable = 13;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#selectorEnabled}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#selectorEnabled}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -402,21 +402,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:selectorEnabled
+          @attr name com.caoyanming.curriculum:selectorEnabled
         */
         public static final int SlidingMenu_selectorEnabled = 12;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#shadowDrawable}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#shadowDrawable}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.caoyanming.curroculum:shadowDrawable
+          @attr name com.caoyanming.curriculum:shadowDrawable
         */
         public static final int SlidingMenu_shadowDrawable = 8;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#shadowWidth}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#shadowWidth}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -428,11 +428,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.caoyanming.curroculum:shadowWidth
+          @attr name com.caoyanming.curriculum:shadowWidth
         */
         public static final int SlidingMenu_shadowWidth = 9;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#touchModeAbove}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#touchModeAbove}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -445,11 +445,11 @@ containing a value of this type.
 <tr><td><code>margin</code></td><td>0</td><td></td></tr>
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.caoyanming.curroculum:touchModeAbove
+          @attr name com.caoyanming.curriculum:touchModeAbove
         */
         public static final int SlidingMenu_touchModeAbove = 6;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#touchModeBehind}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#touchModeBehind}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
@@ -462,27 +462,27 @@ containing a value of this type.
 <tr><td><code>margin</code></td><td>0</td><td></td></tr>
 <tr><td><code>fullscreen</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.caoyanming.curroculum:touchModeBehind
+          @attr name com.caoyanming.curriculum:touchModeBehind
         */
         public static final int SlidingMenu_touchModeBehind = 7;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#viewAbove}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#viewAbove}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.caoyanming.curroculum:viewAbove
+          @attr name com.caoyanming.curriculum:viewAbove
         */
         public static final int SlidingMenu_viewAbove = 1;
         /**
-          <p>This symbol is the offset where the {@link com.caoyanming.curroculum.R.attr#viewBehind}
+          <p>This symbol is the offset where the {@link com.caoyanming.curriculum.R.attr#viewBehind}
           attribute's value can be found in the {@link #SlidingMenu} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.caoyanming.curroculum:viewBehind
+          @attr name com.caoyanming.curriculum:viewBehind
         */
         public static final int SlidingMenu_viewBehind = 2;
     };

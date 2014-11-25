@@ -15,7 +15,7 @@ import com.j256.ormlite.table.TableUtils;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper
 {
-	private static final String TABLE_NAME = "sqlite-test.db";
+	private static final String TABLE_NAME = "curriculum.db";
 
 	private Map<String, Dao> daos = new HashMap<String, Dao>();
 
