@@ -8,6 +8,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.caoyanming.curroculum.data.bean.Course;
+import com.caoyanming.curroculum.data.bean.Note;
+import com.caoyanming.curroculum.data.bean.Notebook;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
@@ -31,6 +33,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
 		try
 		{
 			TableUtils.createTable(connectionSource, Course.class);
+			TableUtils.createTable(connectionSource, Note.class);
+			TableUtils.createTable(connectionSource, Notebook.class);
+
 		} catch (SQLException e)
 		{
 			e.printStackTrace();
@@ -44,6 +49,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
 		try
 		{
 			TableUtils.dropTable(connectionSource, Course.class, true);
+			TableUtils.dropTable(connectionSource, Note.class, true);
+			TableUtils.dropTable(connectionSource, Notebook.class, true);
 			onCreate(database, connectionSource);
 		} catch (SQLException e)
 		{

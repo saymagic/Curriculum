@@ -245,14 +245,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bg_alert_window_list_divider=0x7f020002;
         public static final int bg_dialog_btn_delete=0x7f020003;
         public static final int bg_image_menu_item=0x7f020004;
-        public static final int dialog_cancel_btn_bg=0x7f020005;
-        public static final int dialog_cancel_btn_bg_color=0x7f020006;
-        public static final int dialog_ok_btn_bg=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int menu_back=0x7f020009;
-        public static final int menu_selector=0x7f02000a;
-        public static final int panel_divider=0x7f02000b;
-        public static final int popup_bg=0x7f02000c;
+        public static final int button=0x7f020005;
+        public static final int dialog_cancel_btn_bg=0x7f020006;
+        public static final int dialog_cancel_btn_bg_color=0x7f020007;
+        public static final int dialog_ok_btn_bg=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int img_actionbar_overflow=0x7f02000a;
+        public static final int menu_back=0x7f02000b;
+        public static final int menu_selector=0x7f02000c;
+        public static final int panel_divider=0x7f02000d;
+        public static final int popup_bg=0x7f02000e;
+        public static final int shape=0x7f02000f;
+        public static final int shapetop=0x7f020010;
     }
     public static final class id {
         public static final int alert_dialog_btnCancel=0x7f050011;
@@ -269,12 +273,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int base_right_button=0x7f050009;
         public static final int base_title=0x7f050008;
         public static final int btn=0x7f050017;
+        public static final int button=0x7f050033;
+        public static final int button2=0x7f050034;
         public static final int content_frame=0x7f05000a;
         public static final int course_item_last=0x7f05001b;
         public static final int course_item_place=0x7f05001a;
         public static final int course_item_time=0x7f05001c;
         public static final int course_item_title=0x7f050019;
         public static final int divider=0x7f050016;
+        public static final int editbutton=0x7f05002e;
+        public static final int editbutton2=0x7f05002f;
+        public static final int editdate=0x7f05002c;
+        public static final int edittext=0x7f050032;
+        public static final int edittexttwo=0x7f05002d;
         public static final int fullscreen=0x7f050003;
         public static final int iv_divider=0x7f050015;
         public static final int left=0x7f050000;
@@ -291,11 +302,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int menu_list=0x7f050026;
         public static final int menuitem_image=0x7f050024;
         public static final int menuitem_text=0x7f050025;
+        public static final int new_notebook=0x7f050029;
+        public static final int notebook_List=0x7f050028;
+        public static final int notebook_item_date=0x7f05002b;
+        public static final int notebook_item_title=0x7f05002a;
         public static final int ok_cancel_diliver=0x7f050012;
         public static final int right=0x7f050001;
         public static final int selected_view=0x7f050004;
-        public static final int slidingmenumain=0x7f050028;
+        public static final int slidingmenumain=0x7f050030;
         public static final int titleView=0x7f050006;
+        public static final int writedate=0x7f050031;
     }
     public static final class integer {
         public static final int slide_animation_duration=0x7f080000;
@@ -313,9 +329,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int left_menu_item=0x7f030009;
         public static final int menu_layout=0x7f03000a;
         public static final int menu_left=0x7f03000b;
-        public static final int pref_item_thin_line=0x7f03000c;
-        public static final int pref_item_wide_line=0x7f03000d;
-        public static final int slidingmenumain=0x7f03000e;
+        public static final int notebook_layout=0x7f03000c;
+        public static final int notebook_list_item=0x7f03000d;
+        public static final int pref_item_thin_line=0x7f03000e;
+        public static final int pref_item_wide_line=0x7f03000f;
+        public static final int showedit=0x7f030010;
+        public static final int slidingmenumain=0x7f030011;
+        public static final int writedown=0x7f030012;
     }
     public static final class string {
         public static final int app_name=0x7f090000;

@@ -24,6 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.caoyanming.curroculum.ui.activity.WriteActivity" />
+        <activity android:name="com.caoyanming.curroculum.ui.activity.EditActivity" />
     </application>
 
     <instrumentation

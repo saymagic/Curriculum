@@ -15,15 +15,15 @@ public class DbTest extends AndroidTestCase{
 	}
 	
 	public void testAddCourse(){
-		Course c = new Course();
-		c.setClasses(2);
-		c.setColor(1);
-		c.setPlace("中南");
-		c.setStartClass(3);
-		c.setTime("3:10-4:20");
-		c.setTitle("数字电路");
-		c.setWeekly(2);
-		new CourseDao(getContext()).add(c);
+//		Course c = new Course();
+//		c.setClasses(2);
+//		c.setColor(1);
+//		c.setPlace("中南");
+//		c.setStartClass(3);
+//		c.setTime("3:10-4:20");
+//		c.setTitle("数字电路");
+//		c.setWeekly(2);
+//		new CourseDao(getContext()).add(c);
 	}
 	
 	

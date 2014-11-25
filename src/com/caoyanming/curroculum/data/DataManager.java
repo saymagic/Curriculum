@@ -5,7 +5,12 @@ import java.util.List;
 import android.content.Context;
 
 import com.caoyanming.curroculum.data.bean.Course;
+import com.caoyanming.curroculum.data.bean.Note;
+import com.caoyanming.curroculum.data.bean.Notebook;
 import com.caoyanming.curroculum.data.db.CourseDao;
+import com.caoyanming.curroculum.data.db.NoteDao;
+import com.caoyanming.curroculum.data.db.NotebookDao;
+import com.caoyanming.util.CollectionUtil;
 
 /**
  * 
@@ -16,10 +21,14 @@ public class DataManager {
 
 	private static DataManager instance;
 	private CourseDao courseDao;
+	private NoteDao noteDao;
+	private NotebookDao notebookDao;
 	private Context context;
 	private DataManager(Context context) {
 		this.context = context;
 		courseDao = new CourseDao(context);
+		noteDao  = new NoteDao(context);
+		notebookDao = new NotebookDao(context);
 	}
 
 	/**
@@ -59,10 +68,64 @@ public class DataManager {
 		courseDao.update(course);
 	}
 	
+	
 	public List<Course> getAllCourse(){
-		if(courseDao == null)
-			courseDao = new CourseDao(context);
 		return  courseDao.queryAllCourse();
+	}
+	
+	
+
+	
+	public Note getNoteByID(int id){
+		return noteDao.get(id);
+	}
+	
+	public void addNote(Note note){
+		noteDao.add(note);
+	}
+	
+	public void deleteNote(Note note){
+		noteDao.delete(note);
+	}
+	
+	public void updateNote(Note note){
+		noteDao.update(note);
+	}
+	
+	public List<Note> getAllNote(){
+		return  noteDao.queryAllNote();
+	}
+
+	public Notebook getNotebookByID(int id){
+		return notebookDao.get(id);
+	}
+	
+	public void addNotebook(Notebook notebook){
+		notebookDao.add(notebook);
+	}
+	
+	public void deleteNotebook(Notebook notebook){
+		notebookDao.delete(notebook);
+	}
+	
+	public void updateNotebook(Notebook notebook){
+		notebookDao.update(notebook);
+	}
+	
+	public List<Notebook> getAllNotebook(){
+		return  notebookDao.queryAllNotebook();
+	}
+	
+	public Notebook getOrCreateNotebookByTitle(String title){
+		List<Notebook> notebooks = notebookDao.get(title);
+		if(CollectionUtil.isListEmpty(notebooks)){
+			Notebook notebook = new Notebook();
+			notebook.setTitle(title);
+			addNotebook(notebook);
+			return notebook;
+		}else{
+			return notebooks.get(0);
+		}
 	}
 
 }

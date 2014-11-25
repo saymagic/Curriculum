@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,9 +19,11 @@ import android.widget.Toast;
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Course;
+import com.caoyanming.curroculum.data.bean.Notebook;
 import com.caoyanming.curroculum.ui.AlertWindow;
 import com.caoyanming.curroculum.ui.UIUtils;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
+import com.caoyanming.curroculum.ui.activity.WriteActivity;
 import com.caoyanming.util.CollectionUtil;
 import com.caoyanming.util.T;
 /**
@@ -78,7 +81,16 @@ public class ContentFragment extends BaseFragment {
 		linearLayoutList.add(ll6);
 		linearLayoutList.add(ll7);
 
-
+		Course c = new Course();
+		c.setClasses(4);
+		c.setColor(1);
+		c.setPlace("中南");
+		c.setStartClass(1);
+		c.setTime("3:10-4:20");
+		c.setTitle("数字电路");
+		c.setWeekly(2);
+		
+		DataManager.getDataManager(mainActivity).addCourse(c);
 		refreshCurriculumByDB();
 
 		return layout;
@@ -160,17 +172,37 @@ public class ContentFragment extends BaseFragment {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			int id = v.getId();
-			Course c = DataManager.getDataManager(mainActivity).getCourseByID(id);
+			final Course c = DataManager.getDataManager(mainActivity).getCourseByID(id);
 			final String [] menu = getResources().getStringArray(R.array.course_menu);
 			UIUtils.showAlertWindowWithList(mainActivity, getResources().getString(R.string.course_menu_title), new ArrayAdapter<String>(mainActivity,  R.layout.alert_window_list_text_item, menu),new  AlertWindow.OnListItemClickListener(){
 				@Override
 				public void onItemClick(View view, int which) {
 					UIUtils.dismissAlertWindow();
+					switch (which) {
+					case 0:
+						Notebook notebook = DataManager.getDataManager(mainActivity).getOrCreateNotebookByTitle(c.getTitle());
+						T.showLong(mainActivity, DataManager.getDataManager(mainActivity).getAllNotebook().toString());
+						Intent mIntent = new Intent(mainActivity,WriteActivity.class);
+						Bundle mBundle = new Bundle();   
+						mBundle.putSerializable("notebook", notebook);   
+						mIntent.putExtras(mBundle);   
+						startActivity(mIntent);
+						break;
+					case 1:
+						mainActivity.switchContent(new NoteBookFragment());
+						break;
+					case 2:
+						break;
+					case 3:
+						DataManager.getDataManager(mainActivity).deleteCourse(c);
+						refreshCurriculumByDB();
+						break;
+					default:
+						break;
+					}
 					Toast.makeText(mainActivity,menu[which]+"", 1000).show();
 				}
 			});
-			Toast.makeText(mainActivity, "你点击的是:" + c.getTitle(), 
-					Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -183,6 +215,10 @@ public class ContentFragment extends BaseFragment {
 
 
 	private void refreshCurriculumByDB(){
+		for(Iterator<LinearLayout> llIterator = linearLayoutList.iterator(); llIterator.hasNext();){
+			LinearLayout ll_temp = llIterator.next();
+			ll_temp.removeAllViews();
+		}
 		List<Course>  courseList = DataManager.getDataManager(mainActivity.getApplicationContext()).getAllCourse();
 		if(CollectionUtil.isListEmpty(courseList))
 			setAllNoClass();
@@ -199,7 +235,7 @@ public class ContentFragment extends BaseFragment {
 					setNoClass(linearLayoutList.get(i-1),1,0,new Course(i, j));
 				else{
 					setClass(linearLayoutList.get(i-1), course);
-					j += course.getClasses();
+					j += (course.getClasses()-1);
 				}
 			}
 		}	
@@ -217,7 +253,7 @@ public class ContentFragment extends BaseFragment {
 	private Course getCourceByWeekAndClass(List<Course> courseList,int week,int _class){
 		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
 			Course course = courseIterator.next(); // line 1  
-			if(course.getWeekly() == week && (course.getStartClass() <= _class && course.getClasses()+course.getStartClass() <= _class))
+			if(course.getWeekly() == week && (course.getStartClass() <= _class) && ((course.getClasses()+course.getStartClass()-1) >= _class))
 				return course;
 		}  
 		return null;

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.caoyanming.curroculum.ui.view.DateLine
+        android:id="@+id/editdate"
+        android:layout_width="fill_parent"
+        android:layout_height="30.0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="10.0dip"
+        android:background="@drawable/shapetop"
+        android:gravity="center"
+        android:textColor="#ffff0000" />
+
+    <com.caoyanming.curroculum.ui.view.DrawLine
+        android:id="@+id/edittexttwo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/editdate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:background="@drawable/shape"
+        android:gravity="top"
+        android:lineSpacingExtra="3.0dip"
+        android:scrollbars="vertical"
+        android:textColor="#ff000000"
+        android:textSize="18.0sp" />
+
+    <Button
+        android:id="@+id/editbutton"
+        android:layout_width="130.0dip"
+        android:layout_height="40.0dip"
+        android:layout_alignRight="@+id/edittexttwo"
+        android:layout_below="@+id/edittexttwo"
+        android:layout_marginTop="30.0dip"
+        android:background="@drawable/button"
+        android:text="取消"
+        android:textColor="#ffffffff" />
+
+    <Button
+        android:id="@+id/editbutton2"
+        android:layout_width="130.0dip"
+        android:layout_height="40.0dip"
+        android:layout_alignBaseline="@+id/editbutton"
+        android:layout_alignLeft="@+id/edittexttwo"
+        android:layout_below="@+id/edittexttwo"
+        android:background="@drawable/button"
+        android:text="保存"
+        android:textColor="#ffffffff" />
+
+</RelativeLayout>
