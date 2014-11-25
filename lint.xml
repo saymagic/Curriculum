@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="NewApi" severity="ignore">
+        <ignore path="src/com/caoyanming/curroculum/MainActivity.java" />
+        <ignore path="src/com/caoyanming/curroculum/adapter/ImageLoader.java" />
+    </issue>
+</lint>
