@@ -1,6 +1,6 @@
 package com.caoyanming.curroculum.ui.fragment;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +18,8 @@ import android.widget.Toast;
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Course;
-import com.caoyanming.curroculum.data.db.CourseDao;
+import com.caoyanming.curroculum.ui.AlertWindow;
+import com.caoyanming.curroculum.ui.UIUtils;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
 import com.caoyanming.util.CollectionUtil;
 import com.caoyanming.util.T;
@@ -99,39 +101,57 @@ public class ContentFragment extends BaseFragment {
 	 * @param classes 节数
 	 * @param color 背景色
 	 */
-	void setClass(LinearLayout ll, String title, String place,
-			String last, String time, int classes, int color)
+	void setClass(LinearLayout ll, Course course)
 	{
 		View view = LayoutInflater.from(mainActivity).inflate(R.layout.course_item, null);
-		view.setMinimumHeight(dip2px(mainActivity,classes * 48));
-		view.setBackgroundColor(colors[color]);
-		((TextView)view.findViewById(R.id.title)).setText(title);
-		((TextView)view.findViewById(R.id.place)).setText(place);
-		((TextView)view.findViewById(R.id.last)).setText(last);
-		((TextView)view.findViewById(R.id.time)).setText(time);
+		view.setMinimumHeight(dip2px(mainActivity,course.getClasses() * 48));
+		view.setBackgroundColor(colors[course.getColor()]);
+		((TextView)view.findViewById(R.id.course_item_title)).setText(course.getTitle());
+		((TextView)view.findViewById(R.id.course_item_place)).setText(course.getPlace());
+		//((TextView)view.findViewById(R.id.course_item_last)).setText(String.valueOf(course.getWeekly()));
+		((TextView)view.findViewById(R.id.course_item_time)).setText(String.valueOf(course.getTime()));
+
 		//为课程View设置点击的监听器
 		view.setOnClickListener(new OnClickClassListener());
 		TextView blank1 = new TextView(mainActivity);
 		TextView blank2 = new TextView(mainActivity);
-		blank1.setHeight(dip2px(mainActivity,classes));
-		blank2.setHeight(dip2px(mainActivity,classes));
+		view.setId(course.getId());
+		blank1.setHeight(dip2px(mainActivity,course.getClasses()));
+		blank2.setHeight(dip2px(mainActivity,course.getClasses()));
 		ll.addView(blank1);
 		ll.addView(view);
 		ll.addView(blank2);
 	}
 	/**
-	 * 设置无课（空百）
+	 * 设置无课（空白）
 	 * @param ll
 	 * @param classes 无课的节数（长度）
 	 * @param color
+	 * @param week
+	 * @param startClass
 	 */
-	void setNoClass(LinearLayout ll,int classes, int color)
+	void setNoClass(LinearLayout ll,int classes, int color,Course course)
 	{
 		TextView blank = new TextView(mainActivity);
 		if(color == 0)
-			blank.setMinHeight(dip2px(mainActivity,classes * 50));
+			blank.setMinHeight(dip2px(mainActivity,classes * 48));
 		blank.setBackgroundColor(colors[color]);
+		TextView blank1 = new TextView(mainActivity);
+		TextView blank2 = new TextView(mainActivity);
+		blank1.setHeight(dip2px(mainActivity,classes));
+		blank2.setHeight(dip2px(mainActivity,classes));
+		ll.addView(blank2);
 		ll.addView(blank);
+		ll.addView(blank1);
+		blank.setTag(course);
+		blank.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView textView = (TextView) v;
+				Course c = (Course) textView.getTag();
+				T.showLong(mainActivity, String.valueOf(c.getWeekly()));
+			}
+		});
 
 	}
 	//点击课程的监听器
@@ -139,9 +159,17 @@ public class ContentFragment extends BaseFragment {
 
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			String title;
-			title = (String) ((TextView)v.findViewById(R.id.title)).getText();
-			Toast.makeText(mainActivity, "你点击的是:" + title, 
+			int id = v.getId();
+			Course c = DataManager.getDataManager(mainActivity).getCourseByID(id);
+			final String [] menu = getResources().getStringArray(R.array.course_menu);
+			UIUtils.showAlertWindowWithList(mainActivity, getResources().getString(R.string.course_menu_title), new ArrayAdapter<String>(mainActivity,  R.layout.alert_window_list_text_item, menu),new  AlertWindow.OnListItemClickListener(){
+				@Override
+				public void onItemClick(View view, int which) {
+					UIUtils.dismissAlertWindow();
+					Toast.makeText(mainActivity,menu[which]+"", 1000).show();
+				}
+			});
+			Toast.makeText(mainActivity, "你点击的是:" + c.getTitle(), 
 					Toast.LENGTH_SHORT).show();
 		}
 	}
@@ -156,8 +184,6 @@ public class ContentFragment extends BaseFragment {
 
 	private void refreshCurriculumByDB(){
 		List<Course>  courseList = DataManager.getDataManager(mainActivity.getApplicationContext()).getAllCourse();
-		T.showLong(mainActivity, courseList.toString());
-
 		if(CollectionUtil.isListEmpty(courseList))
 			setAllNoClass();
 		else
@@ -166,17 +192,35 @@ public class ContentFragment extends BaseFragment {
 	}
 
 	private void orderClasses(List courseList) {
-		//T.showLong(mainActivity, courseList.toString());
-		setAllNoClass();
+		for(int i = 1; i <= 7; i++){
+			for(int j = 1; j <= 14; j++){
+				Course course = getCourceByWeekAndClass(courseList,i,j);
+				if(course == null)
+					setNoClass(linearLayoutList.get(i-1),1,0,new Course(i, j));
+				else{
+					setClass(linearLayoutList.get(i-1), course);
+					j += course.getClasses();
+				}
+			}
+		}	
 	}
 
 	//全部设成无课
 	private void setAllNoClass(){
-		for(int i = 0; i < 7; i++){
-			for(int j = 0; j < 14; j++){
-				setNoClass(linearLayoutList.get(i),1,0);
+		for(int i = 1; i <= 7; i++){
+			for(int j = 1; j <= 14; j++){
+				setNoClass(linearLayoutList.get(i-1),1,0,new Course(i, j));
 			}
 		}
+	}
+
+	private Course getCourceByWeekAndClass(List<Course> courseList,int week,int _class){
+		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
+			Course course = courseIterator.next(); // line 1  
+			if(course.getWeekly() == week && (course.getStartClass() <= _class && course.getClasses()+course.getStartClass() <= _class))
+				return course;
+		}  
+		return null;
 	}
 
 }

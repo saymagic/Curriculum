@@ -28,24 +28,14 @@ public class CourseDao
 	}
 
 	/**
-	 * 增加一个用户
+	 * 增加一门课程
 	 * 
-	 * @param user
+	 * @param course
 	 * @throws SQLException
 	 */
 	public void add(Course course) 
 	{
-		/*//事务操作
-		TransactionManager.callInTransaction(helper.getConnectionSource(),
-				new Callable<Void>()
-				{
 
-					@Override
-					public Void call() throws Exception
-					{
-						return null;
-					}
-				});*/
 		try
 		{
 			courseDaoOpe.create(course);
@@ -57,6 +47,23 @@ public class CourseDao
 	}
 	
 	
+	
+	public void delete(Course course){
+		try {
+			courseDaoOpe.delete(course);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void update(Course course){
+		try {
+			courseDaoOpe.update(course);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public List<Course> queryAllCourse(){
 		try {
 			return courseDaoOpe.queryForAll();

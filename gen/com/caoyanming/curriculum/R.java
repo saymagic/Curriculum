@@ -17,6 +17,7 @@ public final class R {
         public static final int slide_out_right=0x7f040005;
     }
     public static final class array {
+        public static final int course_menu=0x7f0a0001;
         public static final int left_menu_des=0x7f0a0000;
     }
     public static final class attr {
@@ -133,21 +134,78 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int viewBehind=0x7f010002;
     }
     public static final class color {
+        public static final int actionbar_menu_item_text=0x7f06003e;
+        public static final int alertwidow_btn_cancel_normal=0x7f060029;
+        public static final int alertwidow_btn_cancel_pressed=0x7f06002a;
+        public static final int alertwidow_btn_ok_normal=0x7f06002b;
+        public static final int alertwidow_btn_ok_pressed=0x7f06002c;
+        public static final int alp_pattern_activity_bg=0x7f060033;
+        public static final int alp_pattern_path_light_default=0x7f060034;
+        public static final int alp_pattern_path_light_error=0x7f060035;
+        public static final int alp_pattern_text_default=0x7f060036;
+        public static final int alp_pattern_text_error=0x7f060037;
+        public static final int background=0x7f060028;
         public static final int bg_body=0x7f060003;
         public static final int bg_menu=0x7f060005;
         public static final int bg_title=0x7f060004;
+        public static final int black=0x7f060011;
+        public static final int bright_red=0x7f060043;
+        public static final int common_btn_pressed_bg=0x7f060025;
+        public static final int compos_root_bg=0x7f060038;
+        public static final int config_static_text=0x7f060039;
+        public static final int contact_item_bg=0x7f06001e;
+        public static final int contact_item_pressed_bg=0x7f06001f;
+        public static final int contact_list_divider=0x7f060020;
+        public static final int dialog_btn_bg_normal=0x7f06003f;
+        public static final int dialog_btn_bg_pressed=0x7f060040;
+        public static final int dialog_ok_btn_bg_pressed=0x7f060041;
+        public static final int dialog_text_delete=0x7f060046;
+        public static final int fileexplorer_header_bg=0x7f060026;
         public static final int greenbg=0x7f060002;
+        public static final int grey=0x7f060012;
+        public static final int halftransparent=0x7f060014;
+        public static final int hint_grey=0x7f060044;
+        public static final int hintcolor=0x7f060015;
         public static final int holo_blue=0x7f06000b;
+        public static final int image_menu_bg=0x7f060021;
+        public static final int image_menu_pressed_bg=0x7f060022;
         public static final int line_color=0x7f06000a;
+        public static final int link_blue=0x7f060042;
+        public static final int list_divider=0x7f060018;
+        public static final int login_dropdown_divider=0x7f06001c;
+        public static final int login_dropdown_item_bg=0x7f06001a;
+        public static final int login_dropdown_item_pressed_bg=0x7f06001b;
+        public static final int loginbtnblack=0x7f060016;
         public static final int menu_bg=0x7f060000;
         public static final int menu_bg_pressed=0x7f060001;
+        public static final int notify_config_folder_list_item_normal=0x7f06002d;
+        public static final int notify_config_folder_list_item_pressed=0x7f06002e;
         public static final int photo_line_color=0x7f06000c;
+        public static final int popup_menu_bg=0x7f06001d;
+        public static final int pref_input_dialog_btn_text_color=0x7f060047;
+        public static final int pref_item_bg_pressed=0x7f06003c;
+        public static final int pref_item_line=0x7f06003d;
+        public static final int pref_item_summary=0x7f06003b;
+        public static final int pref_item_title=0x7f06003a;
+        public static final int prime_text=0x7f060017;
+        public static final int progressbar_bg=0x7f060023;
+        public static final int progressbar_progress=0x7f060024;
+        public static final int red=0x7f06000f;
         public static final int text_black_color=0x7f060008;
         public static final int text_blue_color=0x7f06000d;
+        public static final int text_btn_no_bg_normal=0x7f060031;
+        public static final int text_btn_no_bg_pressed=0x7f060032;
+        public static final int text_button=0x7f060027;
         public static final int text_gray_color=0x7f060007;
         public static final int text_green_color=0x7f06000e;
         public static final int text_little_black_color=0x7f060009;
         public static final int title_background=0x7f060006;
+        public static final int title_text=0x7f060045;
+        public static final int top_bar_btn_text_disabled=0x7f060030;
+        public static final int top_bar_btn_text_normal=0x7f06002f;
+        public static final int topbar_title_text=0x7f060019;
+        public static final int transparent=0x7f060013;
+        public static final int white=0x7f060010;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -159,6 +217,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
+        public static final int alertwindow_max_width=0x7f070016;
         public static final int buttom_height=0x7f070013;
         public static final int dimen_10=0x7f07000d;
         public static final int dimen_12=0x7f07000c;
@@ -183,38 +242,59 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class drawable {
         public static final int add_text=0x7f020000;
         public static final int background=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int menu_back=0x7f020003;
-        public static final int menu_selector=0x7f020004;
-        public static final int panel_divider=0x7f020005;
+        public static final int bg_alert_window_list_divider=0x7f020002;
+        public static final int bg_dialog_btn_delete=0x7f020003;
+        public static final int bg_image_menu_item=0x7f020004;
+        public static final int dialog_cancel_btn_bg=0x7f020005;
+        public static final int dialog_cancel_btn_bg_color=0x7f020006;
+        public static final int dialog_ok_btn_bg=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int menu_back=0x7f020009;
+        public static final int menu_selector=0x7f02000a;
+        public static final int panel_divider=0x7f02000b;
+        public static final int popup_bg=0x7f02000c;
     }
     public static final class id {
+        public static final int alert_dialog_btnCancel=0x7f050011;
+        public static final int alert_dialog_btnOK=0x7f050013;
+        public static final int alert_dialog_buttons=0x7f050010;
+        public static final int alert_dialog_content=0x7f05000e;
+        public static final int alert_dialog_content_msg=0x7f05000f;
+        public static final int alert_dialog_listview=0x7f050014;
+        public static final int alert_dialog_timepickerview=0x7f050018;
+        public static final int alert_dialog_title=0x7f05000b;
+        public static final int alert_dialog_title_content=0x7f05000c;
+        public static final int alert_dialog_title_divider=0x7f05000d;
         public static final int base_left_button=0x7f050007;
         public static final int base_right_button=0x7f050009;
         public static final int base_title=0x7f050008;
+        public static final int btn=0x7f050017;
         public static final int content_frame=0x7f05000a;
+        public static final int course_item_last=0x7f05001b;
+        public static final int course_item_place=0x7f05001a;
+        public static final int course_item_time=0x7f05001c;
+        public static final int course_item_title=0x7f050019;
+        public static final int divider=0x7f050016;
         public static final int fullscreen=0x7f050003;
-        public static final int last=0x7f05000d;
+        public static final int iv_divider=0x7f050015;
         public static final int left=0x7f050000;
-        public static final int ll1=0x7f05000f;
-        public static final int ll2=0x7f050010;
-        public static final int ll3=0x7f050011;
-        public static final int ll4=0x7f050012;
-        public static final int ll5=0x7f050013;
-        public static final int ll6=0x7f050014;
-        public static final int ll7=0x7f050015;
+        public static final int ll1=0x7f05001d;
+        public static final int ll2=0x7f05001e;
+        public static final int ll3=0x7f05001f;
+        public static final int ll4=0x7f050020;
+        public static final int ll5=0x7f050021;
+        public static final int ll6=0x7f050022;
+        public static final int ll7=0x7f050023;
         public static final int ly_base_content=0x7f050005;
         public static final int margin=0x7f050002;
-        public static final int menu_frame=0x7f050019;
-        public static final int menu_list=0x7f050018;
-        public static final int menuitem_image=0x7f050016;
-        public static final int menuitem_text=0x7f050017;
-        public static final int place=0x7f05000c;
+        public static final int menu_frame=0x7f050027;
+        public static final int menu_list=0x7f050026;
+        public static final int menuitem_image=0x7f050024;
+        public static final int menuitem_text=0x7f050025;
+        public static final int ok_cancel_diliver=0x7f050012;
         public static final int right=0x7f050001;
         public static final int selected_view=0x7f050004;
-        public static final int slidingmenumain=0x7f05001a;
-        public static final int time=0x7f05000e;
-        public static final int title=0x7f05000b;
+        public static final int slidingmenumain=0x7f050028;
         public static final int titleView=0x7f050006;
     }
     public static final class integer {
@@ -223,16 +303,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class layout {
         public static final int activity_base=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int course_item=0x7f030002;
-        public static final int course_layout=0x7f030003;
-        public static final int left_menu_item=0x7f030004;
-        public static final int menu_layout=0x7f030005;
-        public static final int menu_left=0x7f030006;
-        public static final int slidingmenumain=0x7f030007;
+        public static final int alert_window=0x7f030002;
+        public static final int alert_window_list=0x7f030003;
+        public static final int alert_window_list_text_item=0x7f030004;
+        public static final int alert_window_menu_item=0x7f030005;
+        public static final int alert_window_timepicker=0x7f030006;
+        public static final int course_item=0x7f030007;
+        public static final int course_layout=0x7f030008;
+        public static final int left_menu_item=0x7f030009;
+        public static final int menu_layout=0x7f03000a;
+        public static final int menu_left=0x7f03000b;
+        public static final int pref_item_thin_line=0x7f03000c;
+        public static final int pref_item_wide_line=0x7f03000d;
+        public static final int slidingmenumain=0x7f03000e;
     }
     public static final class string {
         public static final int app_name=0x7f090000;
         public static final int close=0x7f090003;
+        public static final int course_menu_title=0x7f090004;
         public static final int open=0x7f090002;
         public static final int title_activity_splash=0x7f090001;
     }
@@ -240,12 +328,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ButtonBar=0x7f0b0002;
         public static final int ButtonBarButton=0x7f0b0003;
         public static final int FullscreenTheme=0x7f0b0001;
-        /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-         */
         public static final int TitleTextStyle=0x7f0b0000;
+        public static final int dialog=0x7f0b000a;
+        public static final int dialog_borderless_button_style=0x7f0b0007;
+        public static final int dialog_button_bar_style=0x7f0b0005;
+        public static final int dialog_textAppearance1=0x7f0b0004;
+        public static final int dialog_textAppearance2=0x7f0b0006;
+        public static final int no_dim_dialog=0x7f0b000b;
+        public static final int pref_dialog_btn_style=0x7f0b0008;
+        public static final int pref_dialog_ok_btn_style=0x7f0b0009;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.

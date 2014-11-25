@@ -16,5 +16,81 @@
     <color name="photo_line_color">#cacaca</color>
     <color name="text_blue_color">#63B6DF</color>
     <color name="text_green_color">#38beb3</color>
+    
+    <color name="red">#FFFF0000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="grey">#FF999999</color>
+    <color name="transparent">#00000000</color>
+    <color name="halftransparent">#80000000</color>
+    <color name="hintcolor">#FF999999</color>
+    <color name="loginbtnblack">#FF282828</color>
+    <color name="prime_text">#FF333333</color>
+    <color name="list_divider">#ffe6e6e9</color>
+    
+    <color name="topbar_title_text">#FFd9dbdf</color>
+    
+    <color name="login_dropdown_item_bg">#F2ffffff</color>
+    <color name="login_dropdown_item_pressed_bg">#F25b8bc4</color>
+    <color name="login_dropdown_divider">#FFd6d6d6</color>
+    
+    
+    <color name="popup_menu_bg">#F82c2a2e</color>
+    <color name="contact_item_bg">#FFf6f6fa</color>
+    <color name="contact_item_pressed_bg">#FFdbdee2</color>
+    <color name="contact_list_divider">#FFd1d1d1</color>
+    
+    <color name="image_menu_bg">#FFFFFFFF</color>
+    <color name="image_menu_pressed_bg">#FF5b8bc4</color>
+    <color name="progressbar_bg">#FFd9d9d9</color>
+    <color name="progressbar_progress">#FF70a9ff</color>
+    
+    
+    <color name="common_btn_pressed_bg">#ffd3d3d3</color>
+    
+    <color name="fileexplorer_header_bg">#ffe6e6e6</color>
+    
+    <color name="text_button">#2a97ff</color>
+    
+    <color name="background">#FFf7f7f6</color>
+    
+    <color name="alertwidow_btn_cancel_normal">#939395</color>
+    <color name="alertwidow_btn_cancel_pressed">#717376</color>
+    <color name="alertwidow_btn_ok_normal">#6093e0</color>
+    <color name="alertwidow_btn_ok_pressed">#406398</color>
+    
+    <color name="notify_config_folder_list_item_normal">#ebecef</color>
+    <color name="notify_config_folder_list_item_pressed">#dbdee2</color>
+    
+    <color name="top_bar_btn_text_normal">#ffe54f53</color>
+    <color name="top_bar_btn_text_disabled">#ffb2b2b2</color>
+    
+    <color name="text_btn_no_bg_normal">#568dcf</color>
+    <color name="text_btn_no_bg_pressed">#568dcf</color>
+
+    <color name="alp_pattern_activity_bg">#2b2d31</color>
+    <color name="alp_pattern_path_light_default">#70a9ff</color>
+    <color name="alp_pattern_path_light_error">#ff5458</color>
+    
+    <color name="alp_pattern_text_default">#a4adb7</color>
+    <color name="alp_pattern_text_error">#b93c3c</color>
+    <color name="compos_root_bg">#ebecef</color>
+    
+    <color name="config_static_text">#999999</color>
+    
+    <color name="pref_item_title">#333333</color>
+    <color name="pref_item_summary">#999999</color>
+    <color name="pref_item_bg_pressed">#d3d3d3</color>
+    <color name="pref_item_line">#e6e6e9</color>
+    
+    <color name="actionbar_menu_item_text">#333333</color>
+    <color name="dialog_btn_bg_normal">#ffffff</color>
+    <color name="dialog_btn_bg_pressed">#d3d3d3</color>
+    <color name="dialog_ok_btn_bg_pressed">#70a9ff</color>
+
+    <color name="link_blue">#2a97ff</color>
+    <color name="bright_red">#f64746</color>
+    <color name="hint_grey">#cccccc</color>
+    <color name="title_text">#333333</color>
 
 </resources>

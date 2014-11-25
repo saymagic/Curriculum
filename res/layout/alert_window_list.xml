@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+    
+    <RelativeLayout android:id="@+id/alert_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="53dp">
+        
+        <TextView android:id="@+id/alert_dialog_title_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:gravity="center|left"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="#999990"
+            android:textSize="16sp" />
+        <ImageView android:id="@+id/alert_dialog_title_divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="2px"
+            android:layout_alignParentBottom="true"
+            android:background="#FF70a9ff" />
+        
+    </RelativeLayout>
+    
+	<ListView android:id="@+id/alert_dialog_listview"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="43dp"
+	    android:divider="@drawable/bg_alert_window_list_divider"
+	    android:dividerHeight="1px"
+        android:scrollbars="none" />
+	
+    <LinearLayout android:id="@+id/alert_dialog_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-43dp"
+        android:orientation="vertical">
+        
+        <include layout="@layout/pref_item_wide_line"/>
+        
+	    <LinearLayout android:id="@+id/alert_dialog_buttons"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+	        
+	        <Button android:id="@+id/alert_dialog_btnCancel"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            style="@style/pref_dialog_btn_style"
+	            android:text="cancel"
+	            android:layout_weight="1" />
+	        <ImageView android:id="@+id/iv_divider"
+	            android:layout_width="1px"
+	            android:layout_height="48dp"
+	            android:background="@color/pref_item_line"/>
+	        <Button android:id="@+id/alert_dialog_btnOK"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            style="@style/pref_dialog_ok_btn_style"
+	            android:text="ok"
+	            android:layout_weight="1"/>
+	     </LinearLayout>
+        
+    </LinearLayout>
+    
+</LinearLayout>

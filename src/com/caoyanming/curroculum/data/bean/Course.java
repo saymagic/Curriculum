@@ -14,6 +14,11 @@ public class Course {
 
 	public Course() {}
 	
+	public Course(int week,int startClass){
+		this.weekly = week;
+		this.startClass = startClass;
+	}
+	
 	@DatabaseField(generatedId = true)
 	private int id;
 	// 课程名称

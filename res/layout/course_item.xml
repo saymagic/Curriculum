@@ -6,21 +6,21 @@
     android:paddingLeft="5dp"
     android:orientation="vertical" >
     <TextView
-        android:id="@+id/title" 
+        android:id="@+id/course_item_title" 
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_alignParentTop="true"
     	android:textColor="#ffffff"
     	android:textSize="16sp"/>
     <TextView 
-        android:id="@+id/place"
+        android:id="@+id/course_item_place"
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:layout_below="@id/title"
+    	android:layout_below="@id/course_item_title"
     	android:textColor="#ffffff"
     	android:textSize="12sp"/>
     <TextView 
-        android:id="@+id/last"
+        android:id="@+id/course_item_last"
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_alignParentBottom="true"
@@ -28,7 +28,7 @@
     	android:textColor="#ffffff"
     	android:textSize="11sp"/>   
     <TextView 
-        android:id="@+id/time"
+        android:id="@+id/course_item_time"
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_alignParentBottom="true"

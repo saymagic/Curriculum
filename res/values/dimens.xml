@@ -23,5 +23,6 @@
     <dimen name="buttom_height">50dp</dimen>
     <dimen name="idea_item_margin">10dp</dimen>
     <dimen name="idea_operator_width">50dp</dimen>
+    <dimen name="alertwindow_max_width">450.0dip</dimen>
 
 </resources>
