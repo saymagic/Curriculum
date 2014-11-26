@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.caoyanming.curriculum.R;
+import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Note;
 import com.caoyanming.curroculum.ui.activity.EditActivity;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
@@ -113,14 +114,11 @@ public class NoteAdapter extends BaseAdapter {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-
-
 			Intent intent = new Intent((MainActivity) context,EditActivity.class);
 			Note note = list.get(position);
 			Bundle mBundle = new Bundle();   
 			mBundle.putSerializable("note", note);   
 			intent.putExtras(mBundle);
-			((MainActivity) context).startActivity(intent);
 			((MainActivity) context).startActivity(intent);
 		}
 
@@ -131,7 +129,6 @@ public class NoteAdapter extends BaseAdapter {
 
 		public DeleteButtonListener(int position) {
 			this.position = position;
-
 		}
 
 		@Override
@@ -142,14 +139,13 @@ public class NoteAdapter extends BaseAdapter {
 
 			android.app.AlertDialog.Builder builder = new Builder(context);
 			builder.setTitle("确定删除？");
-			builder.setPositiveButton("删除",
+			builder.setPositiveButton("确定",
 					new DialogInterface.OnClickListener() {
-
 						@Override
 						public void onClick(DialogInterface dialog, int i) {
-							
-							// a.showUpdate();
-
+							DataManager.getDataManager(context).deleteNote(list.get(position));
+							list.remove(position);
+							NoteAdapter.this.notifyDataSetChanged();
 						}
 					});
 			builder.setNegativeButton("取消",

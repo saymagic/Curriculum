@@ -3,7 +3,6 @@ package com.caoyanming.curroculum.ui.fragment;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.adapter.CommonAdapter;
@@ -73,9 +71,25 @@ public class MenuFragment extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				if(getActivity() instanceof MainActivity) {
-					
+					HashMap<String, Object> map = (HashMap<String, Object>) parent.getItemAtPosition(position);
+					int i = (Integer) map.get("itemId");
+					BaseFragment frag = getFragment(i);
+					((MainActivity) getActivity()).switchContent(frag);
 				}
 			}
 		});
+	}
+	
+	public BaseFragment getFragment(int i) {
+		switch (i){
+		case 0:
+			((MainActivity) getActivity()).setTitle("课程表");
+			return new ContentFragment();
+		case 1:
+			((MainActivity) getActivity()).setTitle("笔记本");
+			return new NoteBookFragment();
+		default:
+			return new ContentFragment();
+		}
 	}
 }

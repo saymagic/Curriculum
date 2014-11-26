@@ -12,22 +12,4 @@
         android:layout_weight="8"
         android:divider="@drawable/panel_divider" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/new_notebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:background="#FF3030"
-            android:text="新建笔记本"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-
 </LinearLayout>

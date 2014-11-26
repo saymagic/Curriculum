@@ -30,7 +30,6 @@ public class NoteBookFragment extends BaseFragment {
 
 	private LinearLayout layout;
 	private SwipeMenuListView notebookListView;
-	private Button newNotebook;
 	private MainActivity mainActivity;
 	private List<Notebook> notebookList;
 

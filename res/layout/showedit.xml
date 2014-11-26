@@ -31,26 +31,4 @@
         android:textColor="#ff000000"
         android:textSize="18.0sp" />
 
-    <Button
-        android:id="@+id/editbutton"
-        android:layout_width="130.0dip"
-        android:layout_height="40.0dip"
-        android:layout_alignRight="@+id/edittexttwo"
-        android:layout_below="@+id/edittexttwo"
-        android:layout_marginTop="30.0dip"
-        android:background="@drawable/button"
-        android:text="取消"
-        android:textColor="#ffffffff" />
-
-    <Button
-        android:id="@+id/editbutton2"
-        android:layout_width="130.0dip"
-        android:layout_height="40.0dip"
-        android:layout_alignBaseline="@+id/editbutton"
-        android:layout_alignLeft="@+id/edittexttwo"
-        android:layout_below="@+id/edittexttwo"
-        android:background="@drawable/button"
-        android:text="保存"
-        android:textColor="#ffffffff" />
-
 </RelativeLayout>
