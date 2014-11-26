@@ -54,7 +54,7 @@ public class WriteActivity extends BaseActivity {
 				Note note = new Note();
 				note.setNotebook(notebook);
 				note.setContent(editText.getText().toString());
-				note.setData(TimeUtil.getDate());
+				note.setDate(TimeUtil.getDate());
 				DataManager.getDataManager(context).addNote(note);
 				T.showLong(context, "Die");
 			}

@@ -1,10 +1,12 @@
 package com.caoyanming.curroculum.data.bean;
 
+import java.io.Serializable;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "tb_note")
-public class Note {
+public class Note implements Serializable{
 
 	@DatabaseField(generatedId = true)
 	public int id;
@@ -14,6 +16,8 @@ public class Note {
 	public String date;
 	@DatabaseField(columnName = "title")
 	public String title;
+	@DatabaseField(columnName = "expanded")
+	private boolean  expanded;
 	@DatabaseField(canBeNull = true, foreign = true, columnName = "notebook")  
 	public Notebook notebook;
 	public int getId() {
@@ -31,7 +35,7 @@ public class Note {
 	public String getDate() {
 		return date;
 	}
-	public void setData(String date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getTitle() {
@@ -40,12 +44,18 @@ public class Note {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public boolean isExpanded() {
+		return expanded;
+	}
+	public void setExpanded(boolean expanded) {
+		this.expanded = expanded;
+	}
 	public Notebook getNotebook() {
 		return notebook;
 	}
 	public void setNotebook(Notebook notebook) {
 		this.notebook = notebook;
 	}
-
+	
 
 }

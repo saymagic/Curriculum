@@ -1,14 +1,13 @@
 package com.caoyanming.curroculum.ui.fragment;
 
 
+import java.util.List;
+
 import so.cym.swipemenulistview.SwipeMenu;
 import so.cym.swipemenulistview.SwipeMenuCreator;
 import so.cym.swipemenulistview.SwipeMenuItem;
 import so.cym.swipemenulistview.SwipeMenuListView;
 import so.cym.swipemenulistview.SwipeMenuListView.OnMenuItemClickListener;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -33,7 +32,7 @@ public class NoteBookFragment extends BaseFragment {
 	private SwipeMenuListView notebookListView;
 	private Button newNotebook;
 	private MainActivity mainActivity;
-
+	private List<Notebook> notebookList;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,8 +40,8 @@ public class NoteBookFragment extends BaseFragment {
 		layout = (LinearLayout) inflater.inflate(R.layout.notebook_layout, container, false);
 		mainActivity = (MainActivity) getActivity();
 		notebookListView = (SwipeMenuListView) layout.findViewById(R.id.notebook_List);
-
-		notebookListView.setAdapter(new CommonAdapter<Notebook>(mainActivity, DataManager.getDataManager(mainActivity).getAllNotebook(), R.layout.notebook_list_item) {
+		notebookList =  DataManager.getDataManager(mainActivity).getAllNotebook();
+		notebookListView.setAdapter(new CommonAdapter<Notebook>(mainActivity,notebookList, R.layout.notebook_list_item) {
 
 			@Override
 			public void convert(ViewHolder helper, Notebook item) {
@@ -131,6 +130,7 @@ public class NoteBookFragment extends BaseFragment {
 		@Override
 		public void onItemClick(AdapterView<?> paramAdapterView,
 				View paramView, int paramInt, long paramLong) {
+			mainActivity.switchContent(new NotesFragment(notebookList.get(paramInt)));
 
 		}
 
