@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="50dp"
+    android:layout_height="fill_parent"
     android:gravity="center_vertical"
     android:orientation="horizontal" >
 
@@ -9,17 +9,13 @@
         android:id="@+id/menuitem_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="25dp"
-        android:src="@drawable/add_text" >
-    </ImageView>
+        android:layout_margin="17dp" />
 
     <TextView
         android:id="@+id/menuitem_text"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:textColor="#ffffff"
-        android:textSize="16dip" >
-    </TextView>
+        android:textColor="#FF000000"
+        android:textSize="17sp" />
 
 </LinearLayout>

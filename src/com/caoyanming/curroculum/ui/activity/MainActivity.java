@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
 		menu = new SlidingMenu(this,SlidingMenu.SLIDING_CONTENT);
 		menu.setMenu(R.layout.menu_left);
 		menu.setShadowWidth(20);//设置阴影有立体效果
-		//menu.setShadowDrawable(R.drawable.shadow);
+		menu.setShadowDrawable(R.drawable.shadow);
 		menu.setBehindOffset(50);
 		menu.setBehindScrollScale(1);
 		menu.setBehindWidth((int) (getWindowManager().getDefaultDisplay().getWidth()*0.6));

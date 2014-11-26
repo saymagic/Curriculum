@@ -85,11 +85,11 @@ public class ContentFragment extends BaseFragment {
 		c.setClasses(4);
 		c.setColor(1);
 		c.setPlace("中南");
-		c.setStartClass(1);
+		c.setStartClass(2);
 		c.setTime("3:10-4:20");
 		c.setTitle("数字电路");
 		c.setWeekly(2);
-		
+
 		DataManager.getDataManager(mainActivity).addCourse(c);
 		refreshCurriculumByDB();
 
@@ -215,10 +215,14 @@ public class ContentFragment extends BaseFragment {
 
 
 	private void refreshCurriculumByDB(){
-		for(Iterator<LinearLayout> llIterator = linearLayoutList.iterator(); llIterator.hasNext();){
-			LinearLayout ll_temp = llIterator.next();
-			ll_temp.removeAllViews();
+
+		for(int i = 1; i <= 7; i++){
+			int count = linearLayoutList.get(i-1).getChildCount();
+			// 这里不能清空linearLayout，因为要保留linearLayout上面MON……这些TextView。
+			while(count > 2) 
+				linearLayoutList.get(i-1).removeViewAt(--count);
 		}
+
 		List<Course>  courseList = DataManager.getDataManager(mainActivity.getApplicationContext()).getAllCourse();
 		if(CollectionUtil.isListEmpty(courseList))
 			setAllNoClass();

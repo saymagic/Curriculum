@@ -3,7 +3,6 @@
     android:id="@+id/ly_base_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_body"
     android:orientation="vertical"
    >
 
@@ -11,7 +10,7 @@
         android:id="@+id/titleView"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/title_height"
-        android:background="@color/menu_bg" >
+        android:background="@color/bg_title" >
 
         <ImageView
             android:id="@+id/base_left_button"

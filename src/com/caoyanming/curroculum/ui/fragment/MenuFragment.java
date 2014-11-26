@@ -2,6 +2,8 @@ package com.caoyanming.curroculum.ui.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.caoyanming.curriculum.R;
+import com.caoyanming.curroculum.adapter.CommonAdapter;
+import com.caoyanming.curroculum.adapter.ViewHolder;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
 /**
  * 
@@ -25,7 +29,8 @@ public class MenuFragment extends Fragment {
 
 	private LinearLayout layout;
 	private ListView list;
-	ArrayList<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
+	private MainActivity mainActivity;
+	List<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,27 +38,36 @@ public class MenuFragment extends Fragment {
 
 		layout = (LinearLayout) inflater.inflate(R.layout.menu_layout,
 				container, false);
+		mainActivity = (MainActivity) getActivity();
 		initView();
 		return layout;
 	}
 
 	private void initView() {
+		int[] images = {
+				R.drawable.menu_course,
+				R.drawable.menu_note,
+				R.drawable.menu_setting
+				};
 
 		String [] terms = getResources().getStringArray(R.array.left_menu_des);
 		for (int i = 0; i <= terms.length-1; i++) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			map.put("itemId", i);
+			map.put("itemImg",images[i]);
 			map.put("itemText", terms[i]);
 			data.add(map);
 		}
 
 		list = (ListView) layout.findViewById(R.id.menu_list);
-
-		SimpleAdapter simperAdapter = new SimpleAdapter(getActivity(), data,
-				R.layout.left_menu_item, new String[] { "itemImage", "itemText" },
-				new int[] { R.id.menuitem_image, R.id.menuitem_text });
-		list.setAdapter(simperAdapter);
-		list.setSelector(R.drawable.menu_selector);
+		list.setAdapter(new CommonAdapter<HashMap<String, Object>>(mainActivity, data,R.layout.left_menu_item) {
+			@Override
+			public void convert(ViewHolder helper, HashMap<String, Object> item) {
+				helper.setImageResource(R.id.menuitem_image, Integer.parseInt(item.get("itemImg").toString()));
+				helper.setText( R.id.menuitem_text, item.get("itemText").toString());
+			}
+		});
+		//list.setSelector(R.drawable.menu_selector);
 		list.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
