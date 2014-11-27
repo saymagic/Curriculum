@@ -1,10 +1,13 @@
 package com.caoyanming.curroculum.ui.fragment;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +25,7 @@ import com.caoyanming.curroculum.data.bean.Course;
 import com.caoyanming.curroculum.data.bean.Notebook;
 import com.caoyanming.curroculum.ui.AlertWindow;
 import com.caoyanming.curroculum.ui.UIUtils;
+import com.caoyanming.curroculum.ui.activity.CourseActivity;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
 import com.caoyanming.curroculum.ui.activity.WriteActivity;
 import com.caoyanming.util.CollectionUtil;
@@ -44,9 +48,33 @@ public class ContentFragment extends BaseFragment {
 	private LinearLayout ll5;
 	private LinearLayout ll6;
 	private LinearLayout ll7;
-	private ArrayList<Course> courseList;
+	private List<Course> courseList;
 	private MainActivity mainActivity;
+	private int[][] timetable;
 
+//	private ContentFragment(){}
+//	
+//	private static ContentFragment instance;
+//
+//	/**
+//	 * 单例获取该DataManager
+//	 * 
+//	 * @param context
+//	 * @return
+//	 */
+//	public static synchronized ContentFragment getContentFragment()
+//	{
+//		if (instance == null)
+//		{
+//			synchronized (ContentFragment.class)
+//			{
+//				if (instance == null)
+//					instance = new ContentFragment();
+//			}
+//		}
+//
+//		return instance;
+//	}
 	private int colors[] = {
 			Color.rgb(0xee,0xff,0xff),
 			Color.rgb(0xf0,0x96,0x09),
@@ -57,7 +85,7 @@ public class ContentFragment extends BaseFragment {
 			Color.rgb(0xd5,0x4d,0x34),
 			Color.rgb(0xcc,0xcc,0xcc)
 	};
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -80,19 +108,7 @@ public class ContentFragment extends BaseFragment {
 		linearLayoutList.add(ll5);
 		linearLayoutList.add(ll6);
 		linearLayoutList.add(ll7);
-
-		Course c = new Course();
-		c.setClasses(4);
-		c.setColor(1);
-		c.setPlace("中南");
-		c.setStartClass(2);
-		c.setTime("3:10-4:20");
-		c.setTitle("数字电路");
-		c.setWeekly(2);
-
-		DataManager.getDataManager(mainActivity).addCourse(c);
-		refreshCurriculumByDB();
-
+		timetable = new int[7][14];
 		return layout;
 	}
 
@@ -100,7 +116,22 @@ public class ContentFragment extends BaseFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		courseList = new ArrayList<Course>();
+	}
+	
+	
 
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		refreshCurriculumByDB();
+
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		// TODO Auto-generated method stub
+		super.onConfigurationChanged(newConfig);
 	}
 
 	/**
@@ -121,7 +152,7 @@ public class ContentFragment extends BaseFragment {
 		((TextView)view.findViewById(R.id.course_item_title)).setText(course.getTitle());
 		((TextView)view.findViewById(R.id.course_item_place)).setText(course.getPlace());
 		//((TextView)view.findViewById(R.id.course_item_last)).setText(String.valueOf(course.getWeekly()));
-		((TextView)view.findViewById(R.id.course_item_time)).setText(String.valueOf(course.getTime()));
+		((TextView)view.findViewById(R.id.course_item_teacher)).setText(String.valueOf(course.getTeacher()));
 
 		//为课程View设置点击的监听器
 		view.setOnClickListener(new OnClickClassListener());
@@ -161,7 +192,11 @@ public class ContentFragment extends BaseFragment {
 			public void onClick(View v) {
 				TextView textView = (TextView) v;
 				Course c = (Course) textView.getTag();
-				T.showLong(mainActivity, String.valueOf(c.getWeekly()));
+				Intent mIntent = new Intent(mainActivity,CourseActivity.class);
+				Bundle mBundle = new Bundle();
+				mBundle.putSerializable("course", c);
+				mIntent.putExtras(mBundle);
+				startActivity(mIntent);
 			}
 		});
 
@@ -181,7 +216,6 @@ public class ContentFragment extends BaseFragment {
 					switch (which) {
 					case 0:
 						Notebook notebook = DataManager.getDataManager(mainActivity).getOrCreateNotebookByTitle(c.getTitle());
-						T.showLong(mainActivity, DataManager.getDataManager(mainActivity).getAllNotebook().toString());
 						Intent mIntent = new Intent(mainActivity,WriteActivity.class);
 						Bundle mBundle = new Bundle();   
 						mBundle.putSerializable("notebook", notebook);   
@@ -189,9 +223,15 @@ public class ContentFragment extends BaseFragment {
 						startActivity(mIntent);
 						break;
 					case 1:
-						mainActivity.switchContent(new NoteBookFragment());
+						//mainActivity.switchContent(new NoteBookFragment());
+						mainActivity.switchContent(new NotesFragment(DataManager.getDataManager(mainActivity).getOrCreateNotebookByTitle(c.getTitle())));
 						break;
 					case 2:
+						Intent intent = new Intent(mainActivity,CourseActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putSerializable("course", c);
+						intent.putExtras(bundle);
+						startActivity(intent);
 						break;
 					case 3:
 						DataManager.getDataManager(mainActivity).deleteCourse(c);
@@ -223,21 +263,28 @@ public class ContentFragment extends BaseFragment {
 				linearLayoutList.get(i-1).removeViewAt(--count);
 		}
 
-		List<Course>  courseList = DataManager.getDataManager(mainActivity.getApplicationContext()).getAllCourse();
+		this.courseList = DataManager.getDataManager(mainActivity.getApplicationContext()).getAllCourse();
+		setTimetableByDb();
 		if(CollectionUtil.isListEmpty(courseList))
 			setAllNoClass();
 		else
-			orderClasses(courseList);
+			orderClasses();
 
 	}
 
-	private void orderClasses(List courseList) {
+	private void orderClasses() {
 		for(int i = 1; i <= 7; i++){
 			for(int j = 1; j <= 14; j++){
-				Course course = getCourceByWeekAndClass(courseList,i,j);
-				if(course == null)
-					setNoClass(linearLayoutList.get(i-1),1,0,new Course(i, j));
+				if(timetable[i-1][j-1] == -1){
+//				if(course == null){
+					Course blankCourse = new Course();
+					blankCourse.setWeekly(i);
+					blankCourse.setStartClass(j);
+					blankCourse.setBlank(true);
+					setNoClass(linearLayoutList.get(i-1),1,0,blankCourse);
+				}
 				else{
+					Course course = getCourceByIDFromlist(timetable[i-1][j-1]);
 					setClass(linearLayoutList.get(i-1), course);
 					j += (course.getClasses()-1);
 				}
@@ -249,12 +296,16 @@ public class ContentFragment extends BaseFragment {
 	private void setAllNoClass(){
 		for(int i = 1; i <= 7; i++){
 			for(int j = 1; j <= 14; j++){
-				setNoClass(linearLayoutList.get(i-1),1,0,new Course(i, j));
+				Course blankCourse = new Course();
+				blankCourse.setWeekly(i);
+				blankCourse.setStartClass(j);
+				blankCourse.setBlank(true);
+				setNoClass(linearLayoutList.get(i-1),1,0,blankCourse);
 			}
 		}
 	}
 
-	private Course getCourceByWeekAndClass(List<Course> courseList,int week,int _class){
+	private Course getCourceByWeekAndClass(int week,int _class){
 		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
 			Course course = courseIterator.next(); // line 1  
 			if(course.getWeekly() == week && (course.getStartClass() <= _class) && ((course.getClasses()+course.getStartClass()-1) >= _class))
@@ -262,5 +313,41 @@ public class ContentFragment extends BaseFragment {
 		}  
 		return null;
 	}
+	
+	private Course getCourceByIDFromlist(int id){
+		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
+			Course course = courseIterator.next(); // line 1  
+			if(course.getId() == id)
+				return course;
+		} 
+		return null;
+	}
+	
+	private void setTimetableByDb(){
+		makeTimeTableToZero();
+		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
+			Course course = courseIterator.next(); // line 1  
+			for(int i = 0; i < course.getClasses(); i++){
+				timetable[course.getWeekly()-1][course.getStartClass()+i-1] = course.getId();
+			}
+		} 
+	}
+	
+	private void makeTimeTableToZero(){
+		for(int i = 0; i < 7; i++ )
+			for(int j = 0; j < 14; j++)
+				timetable[i][j] = -1;
+	}
+	
+//	private Map<Integer,List<Course>> getCoursesByWeekly(List<Course> courseList,int week){
+//		Map map = new HashMap<Integer,List<Course>>();
+//		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
+//			Course course = courseIterator.next(); // line 1  
+//			map.put(course.getWeekly(),)
+//			if(course.getWeekly() == week && (course.getStartClass() <= _class) && ((course.getClasses()+course.getStartClass()-1) >= _class))
+//				return course;
+//		} 
+//		return null;
+//	}
 
 }

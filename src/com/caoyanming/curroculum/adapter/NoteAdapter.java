@@ -21,9 +21,13 @@ import android.widget.TextView;
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Note;
+import com.caoyanming.curroculum.data.bean.Notebook;
+import com.caoyanming.curroculum.ui.AlertWindow;
+import com.caoyanming.curroculum.ui.UIUtils;
 import com.caoyanming.curroculum.ui.activity.EditActivity;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
 import com.caoyanming.curroculum.ui.view.TextViewLine;
+import com.caoyanming.util.T;
 
 public class NoteAdapter extends BaseAdapter {
 
@@ -133,32 +137,20 @@ public class NoteAdapter extends BaseAdapter {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-
-			// TODO Auto-generated method stub
-
-			android.app.AlertDialog.Builder builder = new Builder(context);
-			builder.setTitle("确定删除？");
-			builder.setPositiveButton("确定",
-					new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int i) {
-							DataManager.getDataManager(context).deleteNote(list.get(position));
-							list.remove(position);
-							NoteAdapter.this.notifyDataSetChanged();
-						}
-					});
-			builder.setNegativeButton("取消",
-					new DialogInterface.OnClickListener() {
-
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							// TODO Auto-generated method stub
-							dialog.dismiss();
-						}
-					});
-			builder.create();
-			builder.show();
+			UIUtils.showAlertWindowWithDeleteOnRight(context, null, "确定删除", "是", new AlertWindow.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					DataManager.getDataManager(context).deleteNote(list.get(position));
+					list.remove(position);
+					NoteAdapter.this.notifyDataSetChanged();	
+					T.show(context, "删除成功",1000);
+				}
+			}, "否", new AlertWindow.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					UIUtils.dismissAlertWindow();
+				}
+			});
 		}
 
 	}

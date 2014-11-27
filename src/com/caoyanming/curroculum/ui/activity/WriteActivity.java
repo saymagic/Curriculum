@@ -16,10 +16,16 @@ import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Note;
 import com.caoyanming.curroculum.data.bean.Notebook;
+import com.caoyanming.curroculum.ui.AlertWindow;
+import com.caoyanming.curroculum.ui.UIUtils;
 import com.caoyanming.curroculum.ui.view.DrawLine;
 import com.caoyanming.util.T;
 import com.caoyanming.util.TimeUtil;
-
+/**
+ * 
+ * @author saymagic
+ *
+ */
 public class WriteActivity extends BaseActivity {
 	private Button cancelButton;
 	private Context context = this;
@@ -51,10 +57,7 @@ public class WriteActivity extends BaseActivity {
 		if (TextUtils.isEmpty(strContent)) {
 			WriteActivity.this.finish();
 		}else{
-			new AlertDialog.Builder(WriteActivity.this)   
-			.setMessage("您需要保存刚才的笔记吗")  
-			.setPositiveButton("是", new OnClickListener() {
-
+			UIUtils.showAlertWindowWithDeleteOnRight(WriteActivity.this, null, "您需要保存刚才的笔记吗", "是", new AlertWindow.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					Note note = new Note();
@@ -64,15 +67,18 @@ public class WriteActivity extends BaseActivity {
 					note.setTitle(strTitle);
 					note.setDate(TimeUtil.getDate());
 					DataManager.getDataManager(context).addNote(note);
-					WriteActivity.this.finish();
+					T.show(context, "保存成功",1000);
+					WriteActivity.this.finish();		
 				}
-			})  
-			.setNegativeButton("否", new OnClickListener() {
+			}, "否", new AlertWindow.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
+					UIUtils.dismissAlertWindow();
 					WriteActivity.this.finish();
 				}
-			}).show();
+			});
+
+			
 		}
 	}
 

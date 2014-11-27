@@ -20,15 +20,7 @@
     	android:textColor="#ffffff"
     	android:textSize="12sp"/>
     <TextView 
-        android:id="@+id/course_item_last"
-        android:layout_width="fill_parent"
-    	android:layout_height="wrap_content"
-    	android:layout_alignParentBottom="true"
-    	android:gravity="right"
-    	android:textColor="#ffffff"
-    	android:textSize="11sp"/>   
-    <TextView 
-        android:id="@+id/course_item_time"
+        android:id="@+id/course_item_teacher"
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_alignParentBottom="true"

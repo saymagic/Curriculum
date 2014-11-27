@@ -68,13 +68,16 @@ public class DataManager {
 		courseDao.update(course);
 	}
 	
+	public void addOrUpdateCourse(Course course){
+		if(getCourseByID(course.getId()) == null)
+			addCourse(course);
+		else
+			updateCourse(course);
+	}
 	
 	public List<Course> getAllCourse(){
 		return  courseDao.queryAllCourse();
 	}
-	
-	
-
 	
 	public Note getNoteByID(int id){
 		return noteDao.get(id);

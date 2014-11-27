@@ -5,7 +5,22 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="open">open</string>
     <string name="close">close</string>
-	<string name="course_menu_title">选择操作</string>
+    <string name="course_menu_title">选择操作</string>
+    <string name="course_name">课程名称</string>
+    <string name="course_name_hint">请输入课程名称</string>
+    <string name="course_place">地点</string>
+    <string name="course_place_hint">请输入上课地点</string>
+    <string name="add_ccourse">确认</string>
+    <string name="course_classes">节数</string>
+    <string name="course_classes_hint">请输入该课程一次上几节</string>
+    <string name="course_title_illegal">课程名称为空</string>
+    <string name="course_place_illegal">课程地点为空</string>
+    <string name="course_classes_illegal">课程节数输入不正确</string>
+    <string name="fix_course">修改课程</string>
+    <string name="add_course">添加课程</string>
+    <string name="course_teacher">老师</string>
+    <string name="course_teacher_hint">请输入上课教师</string>
+
     <string-array name="left_menu_des">
         <item>课程表</item>
         <item>笔记</item>
@@ -13,9 +28,12 @@
     </string-array>
     <string-array name="course_menu">
         <item>新建笔记</item>
-        <item>查看课程笔记></item>
+        <item>查看课程笔记</item>
         <item>修改课程</item>
         <item>删除课程</item>
     </string-array>
+
+    <string name="title_activity_course">CourseActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

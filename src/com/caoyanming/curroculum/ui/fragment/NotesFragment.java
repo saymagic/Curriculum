@@ -66,11 +66,12 @@ public class NotesFragment extends BaseFragment {
 	public void showUpdate() {
 		// TODO 自动生成的方法存根
 		this.itemList = new ArrayList<Note>();
-		for(Note localNotepad:notebook.getNote()){
-			this.itemList.add(localNotepad);
-			this.number = this.itemList.size();
+		if(notebook.getNote() != null ){
+			for(Note localNotepad:notebook.getNote()){
+				this.itemList.add(localNotepad);
+				this.number = this.itemList.size();
+			}
 		}
-
 		this.adapter = new NoteAdapter(mainActivity, itemList);
 		listView.setAdapter(adapter);
 

@@ -1,5 +1,7 @@
 package com.caoyanming.curroculum.data.bean;
 
+import java.io.Serializable;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -10,15 +12,15 @@ import com.j256.ormlite.table.DatabaseTable;
  */
 
 @DatabaseTable(tableName = "tb_course")
-public class Course {
+public class Course implements Serializable{
 
 	public Course() {}
-	
+
 	public Course(int week,int startClass){
 		this.weekly = week;
 		this.startClass = startClass;
 	}
-	
+
 	@DatabaseField(generatedId = true)
 	private int id;
 	// 课程名称
@@ -42,8 +44,38 @@ public class Course {
 	//背景色
 	@DatabaseField(columnName = "color")
 	private int color;
+	//老师
+	@DatabaseField(columnName = "teacher")
+	private String teacher;
+	//@DatabaseField(canBeNull = true, foreign = true, columnName = "notebook")  
+	public Notebook notebook;
 	
-	
+	private boolean isBlank;
+
+	public Notebook getNotebook() {
+		return notebook;
+	}
+
+	public void setNotebook(Notebook notebook) {
+		this.notebook = notebook;
+	}
+
+	public boolean isBlank() {
+		return isBlank;
+	}
+
+	public void setBlank(boolean isBlank) {
+		this.isBlank = isBlank;
+	}
+
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -92,9 +124,9 @@ public class Course {
 	public void setColor(int color) {
 		this.color = color;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

@@ -24,5 +24,8 @@
     <dimen name="idea_item_margin">10dp</dimen>
     <dimen name="idea_operator_width">50dp</dimen>
     <dimen name="alertwindow_max_width">450.0dip</dimen>
+    <dimen name="base_action_bar_height">48.0dip</dimen>
+    <dimen name="register_margin">10.0dp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
 
 </resources>

@@ -60,19 +60,12 @@ public class MainActivity extends BaseActivity {
 	protected void onResume() {
 		// TODO 自动生成的方法存根
 		super.onResume();
-		showUpdate();
 	}
-
-	public void showUpdate(){
-		conFragment.showUpdate();
-	}
-
 	//切换主页对应菜单的内容
 	public void switchContent(BaseFragment fragment) {
 		FragmentTransaction ft = this.getFragmentManager().beginTransaction();
 		conFragment = fragment;
 		ft.replace(R.id.content_frame, conFragment);
-		ft.addToBackStack(null);
 		ft.commit();
 		menu.showContent();
 	}

@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Note;
+import com.caoyanming.curroculum.ui.AlertWindow;
+import com.caoyanming.curroculum.ui.UIUtils;
 import com.caoyanming.curroculum.ui.view.DrawLine;
+import com.caoyanming.util.T;
 import com.caoyanming.util.TimeUtil;
 /**
  * 
@@ -43,28 +46,33 @@ public class EditActivity extends BaseActivity {
 	@Override
 	protected void onTitleLeftButtonClicked(View view) {
 		final String strContent = editText.getText().toString();
-
 		if(!this.text.equals(strContent)){
-			new AlertDialog.Builder(EditActivity.this)   
-			.setMessage("您需要保存刚才的修改吗")  
-			.setPositiveButton("是", new OnClickListener() {
+			UIUtils.showAlertWindowWithDeleteOnRight(EditActivity.this, null, "您需要保存刚才的修改吗", "是", new AlertWindow.OnClickListener() {
+
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					note.setContent(strContent);
 					String strTitle=strContent.length()>11?" "+strContent.substring(0, 11):strContent;
 					note.setTitle(strTitle);
+					note.setDate(TimeUtil.getDate());
+					DataManager.getDataManager(context).updateNote(note);
+					T.show(context, "修改成功",1000);
+					finish();					
 				}
-			})  
-			.setNegativeButton("否", new OnClickListener() {
+			}, "否", new AlertWindow.OnClickListener() {
+
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
+					note.setDate(TimeUtil.getDate());
+					DataManager.getDataManager(context).updateNote(note);
+					UIUtils.dismissAlertWindow();
+					finish();
 				}
-			}).show();
+			});
+
 		}
-		
-		note.setDate(TimeUtil.getDate());
-		DataManager.getDataManager(context).updateNote(note);
-		this.finish();
+
+
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import so.cym.swipemenulistview.SwipeMenuCreator;
 import so.cym.swipemenulistview.SwipeMenuItem;
 import so.cym.swipemenulistview.SwipeMenuListView;
 import so.cym.swipemenulistview.SwipeMenuListView.OnMenuItemClickListener;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,7 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.caoyanming.curriculum.R;
@@ -24,15 +24,24 @@ import com.caoyanming.curroculum.adapter.CommonAdapter;
 import com.caoyanming.curroculum.adapter.ViewHolder;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Notebook;
+import com.caoyanming.curroculum.ui.AlertWindow;
+import com.caoyanming.curroculum.ui.UIUtils;
+import com.caoyanming.curroculum.ui.activity.EditActivity;
 import com.caoyanming.curroculum.ui.activity.MainActivity;
-
+import com.caoyanming.util.T;
+import com.caoyanming.util.TimeUtil;
+/**
+ * 
+ * @author saymagic
+ *
+ */
 public class NoteBookFragment extends BaseFragment {
 
 	private LinearLayout layout;
 	private SwipeMenuListView notebookListView;
 	private MainActivity mainActivity;
 	private List<Notebook> notebookList;
-
+	private CommonAdapter notebookAdapter;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -40,8 +49,7 @@ public class NoteBookFragment extends BaseFragment {
 		mainActivity = (MainActivity) getActivity();
 		notebookListView = (SwipeMenuListView) layout.findViewById(R.id.notebook_List);
 		notebookList =  DataManager.getDataManager(mainActivity).getAllNotebook();
-		notebookListView.setAdapter(new CommonAdapter<Notebook>(mainActivity,notebookList, R.layout.notebook_list_item) {
-
+		notebookListView.setAdapter(notebookAdapter = new CommonAdapter<Notebook>(mainActivity,notebookList, R.layout.notebook_list_item) {
 			@Override
 			public void convert(ViewHolder helper, Notebook item) {
 				helper.setText(R.id.notebook_item_title, item.getTitle());  
@@ -97,6 +105,22 @@ public class NoteBookFragment extends BaseFragment {
 				case 0:
 					break;
 				case 1:
+					UIUtils.showAlertWindowWithDeleteOnRight(mainActivity, null, "删除后将会删除该笔记本下所有笔记", "是", new AlertWindow.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Notebook noteBook = notebookList.get(position);
+							DataManager.getDataManager(mainActivity).deleteNotebook(noteBook);	
+							notebookList.remove(position);
+							notebookAdapter.notifyDataSetChanged();
+							T.show(mainActivity, "删除成功",1000);
+						}
+					}, "否", new AlertWindow.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							UIUtils.dismissAlertWindow();
+						}
+					});
+
 					break;
 				}
 			}
@@ -109,7 +133,6 @@ public class NoteBookFragment extends BaseFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 	}
 
 	@Override
@@ -118,12 +141,6 @@ public class NoteBookFragment extends BaseFragment {
 		super.onResume();
 		showUpdate();
 	}
-
-	public void showUpdate() {
-
-
-	}
-
 	class ItemClick implements AdapterView.OnItemClickListener {
 
 		@Override
