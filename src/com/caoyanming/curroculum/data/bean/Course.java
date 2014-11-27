@@ -80,6 +80,8 @@ public class Course implements Serializable{
 		return id;
 	}
 	public void setId(int id) {
+		if(id == 0)
+			id++;
 		this.id = id;
 	}
 	public String getTitle() {
@@ -104,7 +106,7 @@ public class Course implements Serializable{
 		return weekly;
 	}
 	public void setWeekly(int i) {
-		this.weekly = i%7;
+		this.weekly = i%8;
 	}
 	public int getStartClass() {
 		return startClass;

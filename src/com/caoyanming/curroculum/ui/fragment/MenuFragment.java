@@ -89,6 +89,7 @@ public class MenuFragment extends Fragment {
 			((MainActivity) getActivity()).setTitle("笔记本");
 			return new NoteBookFragment();
 		default:
+			int q = 0/0;
 			return new ContentFragment();
 		}
 	}

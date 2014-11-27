@@ -4,4 +4,5 @@
         <ignore path="src/com/caoyanming/curroculum/MainActivity.java" />
         <ignore path="src/com/caoyanming/curroculum/adapter/ImageLoader.java" />
     </issue>
+    <issue id="ResourceAsColor" severity="ignore" />
 </lint>

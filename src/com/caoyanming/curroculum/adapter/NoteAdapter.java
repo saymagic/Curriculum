@@ -1,11 +1,8 @@
 package com.caoyanming.curroculum.adapter;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,7 +18,6 @@ import android.widget.TextView;
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curroculum.data.DataManager;
 import com.caoyanming.curroculum.data.bean.Note;
-import com.caoyanming.curroculum.data.bean.Notebook;
 import com.caoyanming.curroculum.ui.AlertWindow;
 import com.caoyanming.curroculum.ui.UIUtils;
 import com.caoyanming.curroculum.ui.activity.EditActivity;
@@ -140,6 +136,7 @@ public class NoteAdapter extends BaseAdapter {
 			UIUtils.showAlertWindowWithDeleteOnRight(context, null, "确定删除", "是", new AlertWindow.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
+					UIUtils.dismissAlertWindow();
 					DataManager.getDataManager(context).deleteNote(list.get(position));
 					list.remove(position);
 					NoteAdapter.this.notifyDataSetChanged();	

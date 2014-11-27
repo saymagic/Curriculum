@@ -45,12 +45,18 @@ public class CourseActivity extends BaseActivity {
 					return;
 				}
 				String classes = courseClasses.getText().toString();
-				if(!TextUtils.isDigitsOnly(classes)){
-					T.showLong(CourseActivity.this, getResources().getString(R.string.course_classes_illegal)+"1111");
+				if(!TextUtils.isDigitsOnly(classes) || TextUtils.isEmpty(classes)){
+					T.showLong(CourseActivity.this, getResources().getString(R.string.course_classes_illegal));
 					return;
 				}else{
-					if(Integer.valueOf(classes)+course.getStartClass() > 14 || Integer.valueOf(classes) <=0 ){
-						T.showLong(CourseActivity.this, getResources().getString(R.string.course_classes_illegal)+"222");
+					if(Integer.valueOf(classes)+course.getStartClass() > 15 ){
+						T.showLong(CourseActivity.this, getResources().getString(R.string.course_class_toolong) );
+						return;
+					}else if(Integer.valueOf(classes) < 0){
+						T.showLong(CourseActivity.this, getResources().getString(R.string.course_class_toolong) );
+						return;
+					}else if(Integer.valueOf(classes) == 0){
+						T.showLong(CourseActivity.this, getResources().getString(R.string.course_class_zero) );
 						return;
 					}
 				}
@@ -62,6 +68,10 @@ public class CourseActivity extends BaseActivity {
 				if(course.getColor() == 0)
 					course.setColor((int)(1+Math.random()*7));
 				course.setTeacher(teracher);
+				if(DataManager.getDataManager(CourseActivity.this).isCourseConfict(course)){
+					T.showLong(CourseActivity.this, getResources().getString(R.string.course_class_conflict) );
+					return;
+				}
 				DataManager.getDataManager(CourseActivity.this).addOrUpdateCourse(course);
 				CourseActivity.this.finish();
 			}

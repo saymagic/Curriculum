@@ -50,31 +50,30 @@ public class ContentFragment extends BaseFragment {
 	private LinearLayout ll7;
 	private List<Course> courseList;
 	private MainActivity mainActivity;
-	private int[][] timetable;
 
-//	private ContentFragment(){}
-//	
-//	private static ContentFragment instance;
-//
-//	/**
-//	 * 单例获取该DataManager
-//	 * 
-//	 * @param context
-//	 * @return
-//	 */
-//	public static synchronized ContentFragment getContentFragment()
-//	{
-//		if (instance == null)
-//		{
-//			synchronized (ContentFragment.class)
-//			{
-//				if (instance == null)
-//					instance = new ContentFragment();
-//			}
-//		}
-//
-//		return instance;
-//	}
+	//	private ContentFragment(){}
+	//	
+	//	private static ContentFragment instance;
+	//
+	//	/**
+	//	 * 单例获取该DataManager
+	//	 * 
+	//	 * @param context
+	//	 * @return
+	//	 */
+	//	public static synchronized ContentFragment getContentFragment()
+	//	{
+	//		if (instance == null)
+	//		{
+	//			synchronized (ContentFragment.class)
+	//			{
+	//				if (instance == null)
+	//					instance = new ContentFragment();
+	//			}
+	//		}
+	//
+	//		return instance;
+	//	}
 	private int colors[] = {
 			Color.rgb(0xee,0xff,0xff),
 			Color.rgb(0xf0,0x96,0x09),
@@ -85,7 +84,7 @@ public class ContentFragment extends BaseFragment {
 			Color.rgb(0xd5,0x4d,0x34),
 			Color.rgb(0xcc,0xcc,0xcc)
 	};
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -108,7 +107,6 @@ public class ContentFragment extends BaseFragment {
 		linearLayoutList.add(ll5);
 		linearLayoutList.add(ll6);
 		linearLayoutList.add(ll7);
-		timetable = new int[7][14];
 		return layout;
 	}
 
@@ -117,12 +115,11 @@ public class ContentFragment extends BaseFragment {
 		super.onCreate(savedInstanceState);
 		courseList = new ArrayList<Course>();
 	}
-	
-	
+
+
 
 	@Override
 	public void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		refreshCurriculumByDB();
 
@@ -130,7 +127,6 @@ public class ContentFragment extends BaseFragment {
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		// TODO Auto-generated method stub
 		super.onConfigurationChanged(newConfig);
 	}
 
@@ -240,7 +236,6 @@ public class ContentFragment extends BaseFragment {
 					default:
 						break;
 					}
-					Toast.makeText(mainActivity,menu[which]+"", 1000).show();
 				}
 			});
 		}
@@ -275,8 +270,8 @@ public class ContentFragment extends BaseFragment {
 	private void orderClasses() {
 		for(int i = 1; i <= 7; i++){
 			for(int j = 1; j <= 14; j++){
-				if(timetable[i-1][j-1] == -1){
-//				if(course == null){
+				if(DataManager.getDataManager(mainActivity).getTimetable()[i-1][j-1] == -1){
+					//				if(course == null){
 					Course blankCourse = new Course();
 					blankCourse.setWeekly(i);
 					blankCourse.setStartClass(j);
@@ -284,7 +279,7 @@ public class ContentFragment extends BaseFragment {
 					setNoClass(linearLayoutList.get(i-1),1,0,blankCourse);
 				}
 				else{
-					Course course = getCourceByIDFromlist(timetable[i-1][j-1]);
+					Course course = getCourceByIDFromlist(DataManager.getDataManager(mainActivity).getTimetable()[i-1][j-1]);
 					setClass(linearLayoutList.get(i-1), course);
 					j += (course.getClasses()-1);
 				}
@@ -313,7 +308,7 @@ public class ContentFragment extends BaseFragment {
 		}  
 		return null;
 	}
-	
+
 	private Course getCourceByIDFromlist(int id){
 		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
 			Course course = courseIterator.next(); // line 1  
@@ -322,32 +317,20 @@ public class ContentFragment extends BaseFragment {
 		} 
 		return null;
 	}
-	
+
 	private void setTimetableByDb(){
 		makeTimeTableToZero();
 		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
 			Course course = courseIterator.next(); // line 1  
-			for(int i = 0; i < course.getClasses(); i++){
-				timetable[course.getWeekly()-1][course.getStartClass()+i-1] = course.getId();
+			if(course != null){
+				for(int i = 0; i < course.getClasses(); i++){
+					DataManager.getDataManager(mainActivity).getTimetable()[course.getWeekly()-1][course.getStartClass()+i-1] = course.getId();
+				}
 			}
 		} 
 	}
-	
-	private void makeTimeTableToZero(){
-		for(int i = 0; i < 7; i++ )
-			for(int j = 0; j < 14; j++)
-				timetable[i][j] = -1;
-	}
-	
-//	private Map<Integer,List<Course>> getCoursesByWeekly(List<Course> courseList,int week){
-//		Map map = new HashMap<Integer,List<Course>>();
-//		for (Iterator<Course> courseIterator = courseList.iterator(); courseIterator.hasNext();) {  
-//			Course course = courseIterator.next(); // line 1  
-//			map.put(course.getWeekly(),)
-//			if(course.getWeekly() == week && (course.getStartClass() <= _class) && ((course.getClasses()+course.getStartClass()-1) >= _class))
-//				return course;
-//		} 
-//		return null;
-//	}
 
+	private void makeTimeTableToZero(){
+		DataManager.getDataManager(mainActivity).makeTimeTableToZero();
+	}
 }

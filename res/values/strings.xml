@@ -5,6 +5,8 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
     <string name="course_menu_title">选择操作</string>
     <string name="course_name">课程名称</string>
     <string name="course_name_hint">请输入课程名称</string>
@@ -16,9 +18,14 @@
     <string name="course_title_illegal">课程名称为空</string>
     <string name="course_place_illegal">课程地点为空</string>
     <string name="course_classes_illegal">课程节数输入不正确</string>
+    <string name="course_class_toolong">您输入的课程节数过大</string>
+    <string name="course_class_zero">课程节数不能为零</string>
+    <string name="course_class_tooshort">课程节数不能为负</string>
+    <string name="course_class_conflict">课程冲突</string>
     <string name="fix_course">修改课程</string>
     <string name="add_course">添加课程</string>
     <string name="course_teacher">老师</string>
+    <string name="send_crash_tip">啊哦，系统发生了意外的崩溃，您可以点击下面的确定按钮将崩溃信息反馈给我们，帮助我们更改的解决问题。</string>
     <string name="course_teacher_hint">请输入上课教师</string>
 
     <string-array name="left_menu_des">
@@ -35,5 +42,6 @@
 
     <string name="title_activity_course">CourseActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_send_crash">SendCrashActivity</string>
 
 </resources>

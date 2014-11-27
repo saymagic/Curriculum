@@ -11,6 +11,7 @@ import com.caoyanming.curroculum.data.db.CourseDao;
 import com.caoyanming.curroculum.data.db.NoteDao;
 import com.caoyanming.curroculum.data.db.NotebookDao;
 import com.caoyanming.util.CollectionUtil;
+import com.caoyanming.util.T;
 
 /**
  * 
@@ -24,11 +25,21 @@ public class DataManager {
 	private NoteDao noteDao;
 	private NotebookDao notebookDao;
 	private Context context;
+	private int[][] timetable;
 	private DataManager(Context context) {
 		this.context = context;
 		courseDao = new CourseDao(context);
 		noteDao  = new NoteDao(context);
 		notebookDao = new NotebookDao(context);
+		timetable = new int[7][14];
+	}
+	
+	public int[][] getTimetable() {
+		return timetable;
+	}
+
+	public void setTimetable(int[][] timetable) {
+		this.timetable = timetable;
 	}
 
 	/**
@@ -130,5 +141,32 @@ public class DataManager {
 			return notebooks.get(0);
 		}
 	}
+	
+	public void makeTimeTableToZero(){
+		for(int i = 0; i < 7; i++ )
+			for(int j = 0; j < 14; j++)
+				timetable[i][j] = -1;
+	}
 
+	public boolean isCourseConfict(Course course){
+		if(timetable == null){
+			return true;
+		}else{
+			int week = course.getWeekly();
+			int startClass = course.getStartClass();
+			int endClass = startClass + course.getClasses() -1;
+			for(int i = startClass; i <= endClass; i++){
+				//如果课程id＝0，说明是新增的课程
+				if(course.getId() == 0){
+					if(timetable[week -1 ][ i-1] != -1)
+						return true;
+				}else{
+					if(!(timetable[week -1 ][ i-1] == -1 || timetable[week -1 ][ i-1] == course.getId()))
+						return true;
+				}
+			}
+			T.showLong(context, "startClass: "+startClass+" getClasses "+course.getClasses());
+			return false;
+		}
+	}
 }

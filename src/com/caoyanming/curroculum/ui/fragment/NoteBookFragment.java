@@ -53,7 +53,6 @@ public class NoteBookFragment extends BaseFragment {
 			@Override
 			public void convert(ViewHolder helper, Notebook item) {
 				helper.setText(R.id.notebook_item_title, item.getTitle());  
-				helper.setText(R.id.notebook_item_date, item.getDate());  
 			}
 		});
 		SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -108,6 +107,7 @@ public class NoteBookFragment extends BaseFragment {
 					UIUtils.showAlertWindowWithDeleteOnRight(mainActivity, null, "删除后将会删除该笔记本下所有笔记", "是", new AlertWindow.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
+							UIUtils.dismissAlertWindow();
 							Notebook noteBook = notebookList.get(position);
 							DataManager.getDataManager(mainActivity).deleteNotebook(noteBook);	
 							notebookList.remove(position);
@@ -139,7 +139,6 @@ public class NoteBookFragment extends BaseFragment {
 	public void onResume() {
 		// TODO 自动生成的方法存根
 		super.onResume();
-		showUpdate();
 	}
 	class ItemClick implements AdapterView.OnItemClickListener {
 
