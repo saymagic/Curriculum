@@ -32,7 +32,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12.0dip"
                         android:layout_weight="1.0"
-                        android:text="反馈建议"
+                        android:text="反馈"
                         android:textColor="#ff333333"
                         android:textSize="16.0dip" />
 
