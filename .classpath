@@ -9,8 +9,5 @@
 	<classpathentry exported="true" kind="lib" path="libs/ormlite-android-4.48.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/ormlite-core-4.48.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/volley.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/activation.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/additionnal.jar"/>
-	<classpathentry exported="true" kind="lib" path="libs/mail.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

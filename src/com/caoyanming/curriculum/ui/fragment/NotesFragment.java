@@ -58,10 +58,10 @@ public class NotesFragment extends BaseFragment {
 		super.onCreate(savedInstanceState);
 
 	}
-
+	
 	@Override
 	public void onResume() {
-		// TODO 自动生成的方法存根
+		mainActivity.setTitle("笔记");
 		super.onResume();
 		showUpdate();
 	}
