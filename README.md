@@ -7,8 +7,12 @@
 * 提供提供意见反馈和检查、更新版本的入口
 * 在崩溃后自动重启应用，向服务器发送崩溃信息。
 
+##注： 
 
-注： 为了方便测试，在设置界面提供了生成若干课程的按钮
+* 为了方便测试，在设置界面提供了生成若干课程的按钮
+* 项目使用了SlidingMenu库，运行时需要将其引入。SlidingMenu地址：[https://github.com/saymagic/SlidingMenu](https://github.com/saymagic/SlidingMenu)
+
+
 
 
 ## 以下是主要功能的截图：

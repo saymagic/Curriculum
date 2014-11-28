@@ -84,21 +84,15 @@ public class SettingFragment extends BaseFragment {
 						DataManager.getDataManager(mainActivity).addCourse(new Course("大型数据库技术", "世纪楼401", 2, 3,2, "谭长庚"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("linux基础", "世纪楼301", 2, 7,2, "宋铁"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("自习", "世纪楼402", 2, 9,4, ""));
-
 						DataManager.getDataManager(mainActivity).addCourse(new Course("计算机网络原理", "世纪楼401", 3, 5,2, "廖志方"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("linux基础", "世纪楼401", 3, 1,2, "宋铁"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("自习", "世纪楼402", 3, 9,4, ""));
-
-						
 						DataManager.getDataManager(mainActivity).addCourse(new Course("操作系统原理", "世纪楼404", 4, 5,2, "胡志刚"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("设计模式", "世纪楼402", 4, 1,2, "刘伟"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("自习", "世纪楼402", 4, 9,4, ""));
-
 						DataManager.getDataManager(mainActivity).addCourse(new Course("设计模式", "世纪楼402", 5, 1,2, "刘伟"));
 						DataManager.getDataManager(mainActivity).addCourse(new Course("自习", "世纪楼402", 5, 9,4, ""));
-
 						DataManager.getDataManager(mainActivity).addCourse(new Course("自习", "世纪楼402", 6, 9,4, ""));
-
 						UIUtils.dismissAlertWindow();
 					}
 				}, new AlertWindow.OnClickListener() {
