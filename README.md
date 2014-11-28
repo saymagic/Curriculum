@@ -31,7 +31,7 @@
 
 ![http://saymagic-blog.stor.sinaapp.com/141129005418.png](http://saymagic-blog.stor.sinaapp.com/141129005418.png)
 
-### 课程操作按钮事件：
+### 点击课程触发的事件：
 
 ![http://saymagic-blog.stor.sinaapp.com/141129005503.png](http://saymagic-blog.stor.sinaapp.com/141129005503.png)
 
