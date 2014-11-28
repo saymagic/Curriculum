@@ -27,7 +27,7 @@
 ![http://saymagic-blog.stor.sinaapp.com/141129005327.png](http://saymagic-blog.stor.sinaapp.com/141129005327.png)
 
 
-### 添加课程（点击空白课程会触发）：
+### 添加课程（点击空白格子会触发）：
 
 ![http://saymagic-blog.stor.sinaapp.com/141129005418.png](http://saymagic-blog.stor.sinaapp.com/141129005418.png)
 
