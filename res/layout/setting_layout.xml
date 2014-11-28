@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 反馈建议	关于 -->
+
+            <LinearLayout style="@style/leba_bg_layout" >
+
+                <!-- 反馈建议 -->
+
+                <LinearLayout
+                    android:id="@+id/pref_feedback_ll"
+                    style="@style/leba_bg_top_layout" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dip"
+                        android:layout_weight="1.0"
+                        android:text="反馈建议"
+                        android:textColor="#ff333333"
+                        android:textSize="16.0dip" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12.0dip"
+                        android:src="@drawable/setting_arrow" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:background="@drawable/leba_shape_line" />
+
+                <!-- 关于 -->
+
+                <LinearLayout
+                    android:id="@+id/pref_about_ll"
+                    style="@style/leba_bg_bottom_layout" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12.0dip"
+                        android:layout_weight="1.0"
+                        android:text="关于"
+                        android:textColor="#ff333333"
+                        android:textSize="16.0dip" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12.0dip"
+                        android:src="@drawable/setting_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/generate_test_classes"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/base_action_bar_height"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@drawable/btn_login_selector"
+                android:padding="10.0dip"
+                android:text="@string/generate_test_class"
+                android:textColor="@color/base_color_text_white"
+                android:textSize="@dimen/text_size_large" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

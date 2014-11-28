@@ -27,6 +27,9 @@
     <string name="course_teacher">老师</string>
     <string name="send_crash_tip">啊哦，系统发生了意外的崩溃，您可以点击下面的确定按钮将崩溃信息反馈给我们，帮助我们更改的解决问题。</string>
     <string name="course_teacher_hint">请输入上课教师</string>
+    <string name="generate_test_class">生成测试课表</string>
+    <string name="sure_to_feedback">确认反馈</string>
+    <string name="check_update"> 检查更新</string>
 
     <string-array name="left_menu_des">
         <item>课程表</item>
@@ -34,10 +37,10 @@
         <item>设置</item>
     </string-array>
     <string-array name="course_menu">
-        <item>新建笔记</item>
-        <item>查看课程笔记</item>
-        <item>修改课程</item>
-        <item>删除课程</item>
+        <item>&#160;&#160;新建笔记</item>
+        <item>&#160;&#160;查看课程笔记</item>
+        <item>&#160;&#160;修改课程</item>
+        <item>&#160;&#160;删除课程</item>
     </string-array>
 
     <string name="title_activity_course">CourseActivity</string>

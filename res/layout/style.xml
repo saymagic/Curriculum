@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:descendantFocusability="blocksDescendants" >
 
-    <com.caoyanming.curroculum.ui.view.DateLine
+    <com.caoyanming.curriculum.ui.view.DateLine
         android:id="@+id/changedateview"
         android:layout_width="300.0dip"
         android:layout_height="27.0dip"
@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textColor="#ffff0000" />
 s
-    <com.caoyanming.curroculum.ui.view.TextViewLine
+    <com.caoyanming.curriculum.ui.view.TextViewLine
         android:id="@+id/changecontentview"
         android:layout_width="300.0dip"
         android:layout_height="wrap_content"

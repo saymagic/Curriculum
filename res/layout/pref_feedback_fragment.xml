@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/pref_feedback_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dip"
+        android:gravity="top|left"
+        android:minLines="10"
+        android:singleLine="false"
+        android:hint="欢迎您的反馈"
+        android:textColor="#ff333333" />
+
+    <Button
+        android:id="@+id/feed_back"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/base_action_bar_height"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/btn_login_selector"
+        android:padding="10.0dip"
+        android:text="@string/sure_to_feedback"
+        android:textColor="@color/base_color_text_white"
+        android:textSize="@dimen/text_size_large" />
+
+</LinearLayout>

@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <com.caoyanming.curroculum.ui.view.DateLine
+    <com.caoyanming.curriculum.ui.view.DateLine
         android:id="@+id/editdate"
         android:layout_width="fill_parent"
         android:layout_height="30.0dip"
@@ -15,7 +15,7 @@
         android:gravity="center"
         android:textColor="#ffff0000" />
 
-    <com.caoyanming.curroculum.ui.view.DrawLine
+    <com.caoyanming.curriculum.ui.view.DrawLine
         android:id="@+id/edittexttwo"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

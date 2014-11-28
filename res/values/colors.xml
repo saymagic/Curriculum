@@ -76,5 +76,7 @@
     <color name="base_color_text_black">#3e3e39</color>
     <color name="base_color_text_gray">#9fa0a0</color>
     <color name="dialog_color_title">#f82c22</color>
+    <color name="shape_line">#ffcccccc</color>
+    <color name="button_selected">#ff419de4</color>
 
 </resources>

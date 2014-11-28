@@ -26,8 +26,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
-import com.caoyanming.curroculum.CurriculumApplication;
-import com.caoyanming.curroculum.ui.activity.SendCrashActivity;
+import com.caoyanming.curriculum.CurriculumApplication;
+import com.caoyanming.curriculum.ui.activity.SendCrashActivity;
 
 /**
  * 
@@ -44,7 +44,6 @@ public class CrashHandler implements UncaughtExceptionHandler{
 	 *  上传的服务器地址
 	 *  
 	 * */
-	private static final String uploadUrl = "http://3.saymagic.sinaapp.com/ReceiveCrash.php";
 
 	/**
 	 * localFileUrl

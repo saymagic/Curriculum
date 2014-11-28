@@ -1,86 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/theme_bg_color"
-    android:orientation="vertical" >
+<!-- 定义ScrollView，为里面的组件添加垂直滚动条 -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background" >
 
-    <LinearLayout style="@style/Course_Input" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-        <TextView
-            style="@style/Smile.TextView._Black"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="@string/course_name"
-            android:textStyle="bold" />
+        <LinearLayout style="@style/Course_Input" >
 
-        <EditText
-            android:id="@+id/course_name"
-            style="@style/Course_Edit"
-            android:hint="@string/course_name_hint" />
+            <TextView
+                style="@style/Smile.TextView._Black"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/course_name"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/course_name"
+                style="@style/Course_Edit"
+                android:hint="@string/course_name_hint" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Course_Input" >
+
+            <TextView
+                style="@style/Smile.TextView._Black"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/course_place"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_course_place"
+                style="@style/Course_Edit"
+                android:hint="@string/course_place_hint" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Course_Input" >
+
+            <TextView
+                style="@style/Smile.TextView._Black"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/course_teacher"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/course_teacher"
+                style="@style/Course_Edit"
+                android:hint="@string/course_teacher_hint" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Course_Input" >
+
+            <TextView
+                style="@style/Smile.TextView._Black"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/course_classes"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/course_classes"
+                style="@style/Course_Edit"
+                android:hint="@string/course_classes_hint"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_course"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/base_action_bar_height"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:background="@drawable/btn_login_selector"
+            android:text="@string/add_ccourse"
+            android:textColor="@color/base_color_text_white"
+            android:textSize="@dimen/text_size_large" />
     </LinearLayout>
 
-    <LinearLayout style="@style/Course_Input" >
-
-        <TextView
-            style="@style/Smile.TextView._Black"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="@string/course_place"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/et_course_place"
-            style="@style/Course_Edit"
-            android:hint="@string/course_place_hint" />
-    </LinearLayout>
-    <LinearLayout style="@style/Course_Input" >
-
-        <TextView
-            style="@style/Smile.TextView._Black"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="@string/course_teacher"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/course_teacher"
-            style="@style/Course_Edit"
-            android:hint="@string/course_teacher_hint"
-            />
-    </LinearLayout>
-    
-    <LinearLayout style="@style/Course_Input" >
-
-        <TextView
-            style="@style/Smile.TextView._Black"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="@string/course_classes"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/course_classes"
-            style="@style/Course_Edit"
-            android:hint="@string/course_classes_hint"
-            android:inputType="number" />
-    </LinearLayout>
-
-
-    
-
-    <Button
-        android:id="@+id/btn_add_course"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/base_action_bar_height"
-        android:layout_margin="@dimen/activity_vertical_margin"
-        android:background="@drawable/btn_login_selector"
-        android:text="@string/add_ccourse"
-        android:textColor="@color/base_color_text_white"
-        android:textSize="@dimen/text_size_large" />
-
-</LinearLayout>
+</ScrollView>
