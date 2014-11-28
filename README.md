@@ -11,7 +11,7 @@
 
 * 为了方便测试，在设置界面提供了生成若干课程的按钮
 * 项目使用了SlidingMenu库，运行时需要将其引入。SlidingMenu地址：[https://github.com/saymagic/SlidingMenu](https://github.com/saymagic/SlidingMenu)
-* logo desgined by [lanyy](http://weibo.com/u/2267864531).
+* logo designed by [lanyy](http://weibo.com/u/2267864531).
 
 
 
