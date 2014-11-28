@@ -28,7 +28,7 @@ public class Course implements Serializable{
 		this.startClass = startClass;
 		this.classes = classes;
 		this.teacher = teacher;
-		this.color = (int)(1+Math.random()*7);
+		this.color = (int)(1+Math.random()*12);
 	}
 	
 	@DatabaseField(generatedId = true)

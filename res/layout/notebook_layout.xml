@@ -8,7 +8,6 @@
         android:id="@+id/notebook_List"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="3dip"
         android:layout_weight="8"
         android:divider="@drawable/panel_divider" />
 

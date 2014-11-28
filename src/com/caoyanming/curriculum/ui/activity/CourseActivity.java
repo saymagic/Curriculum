@@ -70,7 +70,7 @@ public class CourseActivity extends BaseActivity {
 				course.setPlace(place);
 				//随机生成一种颜色
 				if(course.getColor() == 0)
-					course.setColor((int)(1+Math.random()*7));
+					course.setColor((int)(1+Math.random()*12));
 				course.setTeacher(teracher);
 				if(DataManager.getDataManager(CourseActivity.this).isCourseConfict(course)){
 					T.showLong(CourseActivity.this, getResources().getString(R.string.course_class_conflict) );
@@ -97,7 +97,7 @@ public class CourseActivity extends BaseActivity {
 		}else{
 			setTitle(getResources().getString(R.string.add_course));
 		}
-			
+
 	}
 
 

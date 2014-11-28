@@ -13,7 +13,7 @@
         android:gravity="top|left"
         android:minLines="10"
         android:singleLine="false"
-        android:hint="欢迎您的反馈"
+        android:hint="欢迎您的反馈 : )  "
         android:textColor="#ff333333" />
 
     <Button

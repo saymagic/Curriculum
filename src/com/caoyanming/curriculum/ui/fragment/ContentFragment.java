@@ -57,13 +57,31 @@ public class ContentFragment extends BaseFragment {
 	
 	private int colors[] = {
 			Color.rgb(0xee,0xff,0xff),
-			Color.rgb(0xf0,0x96,0x09),
-			Color.rgb(0x8c,0xbf,0x26),
-			Color.rgb(0x00,0xab,0xa9),
-			Color.rgb(0x99,0x6c,0x33),
-			Color.rgb(0x3b,0x92,0xbc),
-			Color.rgb(0xd5,0x4d,0x34),
-			Color.rgb(0xcc,0xcc,0xcc)
+//			Color.rgb(200,232,145),
+//			Color.rgb(103,192,210),
+//			Color.rgb(239,61,97),
+//			Color.rgb(167,150,194),
+//			Color.rgb(247,203,44),
+//			Color.rgb(86,87,186),
+//			Color.rgb(21,69,138),
+//			Color.rgb(89,181,183),
+//			Color.rgb(206,73,51),
+//			Color.rgb(223,162,35),
+//			Color.rgb(153,182,56),
+//			Color.rgb(114,10,102)
+			
+			Color.rgb(237,85,101),
+			Color.rgb(218,68,63),
+			Color.rgb(252,110,81),
+			Color.rgb(233,87,63),
+			Color.rgb(246,187,66),
+			Color.rgb(140,193,82),
+			Color.rgb(160,212,104),
+			Color.rgb(72,207,173),
+			Color.rgb(55,188,155),
+			Color.rgb(74,137,220),
+			Color.rgb(236,135,192),
+			Color.rgb(215,112,173),
 	};
 
 	@Override

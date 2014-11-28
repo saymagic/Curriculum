@@ -85,23 +85,6 @@ public class NoteBookFragment extends BaseFragment {
 
 			@Override
 			public void create(SwipeMenu menu) {
-				// create "open" item
-				SwipeMenuItem collection = new SwipeMenuItem(
-						mainActivity);
-				// set item background
-				collection.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
-						0xCE)));
-				// set item width
-				collection.setWidth(dp2px(90));
-				// set item title
-				collection.setTitle("取消");
-				// set item title fontsize
-				collection.setTitleSize(18);
-				// set item title font color
-				collection.setTitleColor(Color.WHITE);
-				// add to menu
-				menu.addMenuItem(collection);
-				// create "delete" item
 				SwipeMenuItem share = new SwipeMenuItem(
 						mainActivity);
 				// set item background
@@ -110,7 +93,7 @@ public class NoteBookFragment extends BaseFragment {
 				// set item width
 				share.setWidth(dp2px(90));
 				// set a icon
-				share.setTitle("删除");
+				share.setTitle("删  除");
 				share.setTitleSize(18);
 
 				share.setTitleColor(Color.WHITE);
