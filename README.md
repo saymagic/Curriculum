@@ -41,7 +41,7 @@
 
 ### 查看笔记：
 
-![http://saymagic-blog.stor.sinaapp.com/141128215218.png](http://saymagic-blog.stor.sinaapp.com/141128215218.png)
+![http://saymagic-blog.stor.sinaapp.com/141129005746.png](http://saymagic-blog.stor.sinaapp.com/141129005746.png)
 
 ### 修改课程：
 
@@ -49,7 +49,7 @@
 
 ### 查看课程笔记本：
 
-![http://saymagic-blog.stor.sinaapp.com/141129005746.png](http://saymagic-blog.stor.sinaapp.com/141129005746.png)
+![http://saymagic-blog.stor.sinaapp.com/141129010658.png](http://saymagic-blog.stor.sinaapp.com/141129010658.png)
 
 ### 设置界面：
 
