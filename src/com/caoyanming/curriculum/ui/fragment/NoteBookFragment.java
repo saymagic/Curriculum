@@ -111,8 +111,6 @@ public class NoteBookFragment extends BaseFragment {
 			public void onMenuItemClick(final int position, SwipeMenu menu, int index) {
 				switch (index) {
 				case 0:
-					break;
-				case 1:
 					UIUtils.showAlertWindowWithDeleteOnRight(mainActivity, null, "删除后将会删除该笔记本下所有笔记", "是", new AlertWindow.OnClickListener() {
 						@Override
 						public void onClick(DialogInterface dialog, int which) {

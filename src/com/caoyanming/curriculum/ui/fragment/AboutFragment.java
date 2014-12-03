@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.caoyanming.curriculum.R;
 import com.caoyanming.curriculum.ui.activity.MainActivity;
@@ -25,6 +26,7 @@ public class AboutFragment extends BaseFragment {
 	private ListView list;
 	private MainActivity mainActivity;
 	private Button checkUpdate;
+	private TextView textView;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -43,17 +45,18 @@ public class AboutFragment extends BaseFragment {
 	
 	private void initView() {
 		checkUpdate = (Button) layout.findViewById(R.id.check_update);
+		textView = (TextView) layout.findViewById(R.id.pref_about_privacy_declaration);
 		OnViewClickListener clickListener = new OnViewClickListener();
 		checkUpdate.setOnClickListener(clickListener);
+		textView.setOnClickListener(clickListener);
 	}
 	
 	private class OnViewClickListener implements OnClickListener{
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.pref_feedback_ll:
-				break;
-			case R.id.pref_about_ll:
+			case R.id.pref_about_privacy_declaration:
+				T.showLong(mainActivity, "暂无");
 				break;
 			case R.id.check_update:
 				new APPVersion(mainActivity).needUpdate();
