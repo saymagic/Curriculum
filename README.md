@@ -1,4 +1,5 @@
 
+应用地址：[http://fir.im/xzkcb](http://fir.im/xzkcb)。
 
 ## 学渣课程表v1.0版本完成，目前主要实现功能如下：
 
